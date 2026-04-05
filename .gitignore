@@ -12,6 +12,9 @@
 *.snm
 *.vrb
 
+# Minted cache
+_minted-*/
+
 # Lean build artifacts
 .lake/
 build/

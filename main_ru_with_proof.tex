@@ -1,9 +1,13 @@
 \documentclass[12pt,a4paper]{article}
 
-% Language and font encodings
-\usepackage[T1, T2A]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage[english,russian]{babel}
+% Language and font encodings (XeLaTeX)
+\usepackage{fontspec}
+\setmainfont{Liberation Serif}
+\setsansfont{Liberation Sans}
+\setmonofont{DejaVu Sans Mono}
+\usepackage{polyglossia}
+\setdefaultlanguage{russian}
+\setotherlanguage{english}
 
 % Math packages
 \usepackage{amsmath}
@@ -21,35 +25,14 @@
 \usepackage{indentfirst}
 
 
-\usepackage{listings}
-\usepackage{xcolor}
-
-\definecolor{leanblue}{RGB}{0,0,180}
-\definecolor{leangreen}{RGB}{0,128,0}
-\definecolor{leangray}{RGB}{128,128,128}
-
-\lstdefinelanguage{Lean}{
-  morekeywords={theorem,lemma,def,example,import,open,variable,noncomputable,section,namespace,end,where,by,have,let,set,calc,show,exact,apply,intro,rfl,simp,rw,ring,linarith,nlinarith,norm_num,positivity,omega,decide,fun,if,then,else,match,with,instance,class,structure,inductive,private,protected,abbrev},
-  sensitive=true,
-  morecomment=[l]{--},
-  morecomment=[s]{/-}{-/},
-  morestring=[b]",
-  literate={→}{$\to$}1 {←}{$\leftarrow$}1 {≤}{$\leq$}1 {≥}{$\geq$}1 {≠}{$\neq$}1 {∀}{$\forall$}1 {∃}{$\exists$}1 {∈}{$\in$}1 {⊆}{$\subseteq$}1 {⊂}{$\subset$}1 {∪}{$\cup$}1 {∩}{$\cap$}1 {⊥}{$\bot$}1 {⊤}{$\top$}1 {ℝ}{$\mathbb{R}$}1 {ℂ}{$\mathbb{C}$}1 {ℕ}{$\mathbb{N}$}1 {ℤ}{$\mathbb{Z}$}1 {ℚ}{$\mathbb{Q}$}1 {α}{$\alpha$}1 {β}{$\beta$}1 {γ}{$\gamma$}1 {δ}{$\delta$}1 {ε}{$\varepsilon$}1 {μ}{$\mu$}1 {σ}{$\sigma$}1 {τ}{$\tau$}1 {π}{$\pi$}1 {λ}{$\lambda$}1 {κ}{$\kappa$}1 {∞}{$\infty$}1 {⟨}{$\langle$}1 {⟩}{$\rangle$}1 {‖}{$\|$}1 {·}{$\cdot$}1,
-}
-
-\lstset{
-  language=Lean,
-  basicstyle=\small\ttfamily,
-  keywordstyle=\color{leanblue}\bfseries,
-  commentstyle=\color{leangray}\itshape,
-  stringstyle=\color{leangreen},
-  breaklines=true,
+\usepackage{minted}
+\setminted[lean]{
+  fontsize=\small,
   frame=single,
-  backgroundcolor=\color{gray!5},
-  numbers=left,
-  numberstyle=\tiny\color{gray},
+  bgcolor=gray!5,
+  breaklines=true,
+  linenos=true,
   tabsize=2,
-  showstringspaces=false,
 }
 \begin{document}
 
@@ -130,43 +113,43 @@
 \item $\sigma$-кольца, не являющегося алгеброй.
 \end{enumerate}
 
+\newpage
 \item Покажите, что система множеств, замкнутая относительно операций объединения и пересечения не обязательно является кольцом.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section01_SetAlgebra/Task05.lean}
+\inputminted{lean}{FunAn/Section01_SetAlgebra/Task05.lean}
 
+\newpage
 \item Докажите, что прямое произведение полуколец является полукольцом.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section01_SetAlgebra/Task06.lean}
+\inputminted{lean}{FunAn/Section01_SetAlgebra/Task06.lean}
 
 \item Верно ли, что всякое открытое множество на прямой можно представить в виде счетного объединения непересекающихся интервалов $(\alpha, \beta)$?
+\newpage
 \item Доказать, что отрезок $[a, b]$ нельзя представить в виде объединения двух непустых, непересекающихся замкнутых множеств.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section01_SetAlgebra/Task08.lean}
+\inputminted{lean}{FunAn/Section01_SetAlgebra/Task08.lean}
 
 \item Открыто или замкнуто канторово множество?
+\newpage
 \item Доказать, что канторово множество состоит из тех и только из тех точек отрезка, которые могут быть записаны в виде дроби, не содержащей единицу в троичной записи.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section01_SetAlgebra/Task10.lean}
+\inputminted{lean}{FunAn/Section01_SetAlgebra/Task10.lean}
 
+\newpage
 \item Пусть $\mathcal{B}$ — минимальное $\sigma$-кольцо, содержащее все полуинтервалы вида $[a, b)$, $a, b \in \mathbb{R}$. Доказать, что множества вида $[a, b)$, $[a, b]$, $(a, b]$ также принадлежат $\mathcal{B}$ (то есть являются борелевскими множествами).
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section01_SetAlgebra/Task11.lean}
+\inputminted{lean}{FunAn/Section01_SetAlgebra/Task11.lean}
 
+\newpage
 \item Докажите, что канторово множество имеет мощность континуума.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section01_SetAlgebra/Task12.lean}
+\inputminted{lean}{FunAn/Section01_SetAlgebra/Task12.lean}
 
 \item Является ли канторово множество борелевским?
 \end{enumerate}
@@ -183,39 +166,39 @@
 
 \subsection*{ЗАДАЧИ}
 \begin{enumerate}
+\newpage
 \item Пусть задано множество $A \subset [0,1]$. Назовем внутренней мерой множества $A$ число $\mu_{*}(A) = 1 - \mu^{*}([0,1] \setminus A)$, где $\mu^{*}(A)$ - внешняя мера множества $A$. Доказать, что $\mu^{*}(A) \ge \mu_{*}(A)$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section02_Measure/Task01.lean}
+\inputminted{lean}{FunAn/Section02_Measure/Task01.lean}
 
+\newpage
 \item Доказать, что множество $A \subset [0,1]$ измеримо по Лебегу тогда и только тогда, когда $\mu^{*}(A) = \mu_{*}(A)$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section02_Measure/Task02.lean}
+\inputminted{lean}{FunAn/Section02_Measure/Task02.lean}
 
+\newpage
 \item Доказать, что борелевские множества измеримы по Лебегу.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section02_Measure/Task03.lean}
+\inputminted{lean}{FunAn/Section02_Measure/Task03.lean}
 
 \item Пусть $X$ — единичный квадрат на плоскости и $\mathcal{S}$ — полукольцо содержащихся в $X$ прямоугольников $T_{ab}$ вида
 $$T_{ab} = \{(x,y) \in \mathbb{R}^{2} : a \le x < b, \ 0 \le y \le 1\},$$
 где $0 \le a \le b \le 1$. Положим $\mu(T_{ab}) = b - a$.
 \begin{enumerate}[label=\alph*)]
 \item Доказать, что множество $T = \{(x,y) \in \mathbb{R}^{2} : 0 \le x < 1, y = 1/2\}$ неизмеримо по мере $\mu$, и найти его внешнюю меру.
+\newpage
 \item Описать явный вид лебеговского продолжения меры $\mu$.
 \end{enumerate}
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section02_Measure/Task04.lean}
+\inputminted{lean}{FunAn/Section02_Measure/Task04.lean}
 
 \item Найти меру Лебега канторова множества.
 
@@ -229,14 +212,14 @@ $$T_{ab} = \{(x,y) \in \mathbb{R}^{2} : a \le x < b, \ 0 \le y \le 1\},$$
 \item Постройте пример неизмеримого по Лебегу множества на плоскости.
 \item Постройте пример измеримого по Лебегу множества на плоскости, проекции которого на координатные оси неизмеримы.
 
+\newpage
 \item Пусть $X = \{x_{1}, x_{2}, \dots, x_{n}, \dots\}$ — счетное множество и каждому элементу $x_{n}$ поставлено в соответствие число $p_{n} \ge 0$ так, что $\sum_{n=1}^{\infty} p_{n} = 1$. Положим для любого подмножества $A \subseteq X$:
 $$\mu(A) = \sum_{n \in N_{A}} p_{n}, \text{ где } N_{A} = \{n \in \mathbb{N} : x_{n} \in A\}.$$
 Доказать, что $\mu$ есть $\sigma$-аддитивная мера на алгебре всех подмножеств множества $X$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section02_Measure/Task11.lean}
+\inputminted{lean}{FunAn/Section02_Measure/Task11.lean}
 
 \item Привести пример конечно-аддитивной, но не $\sigma$-аддитивной меры.
 
@@ -248,22 +231,22 @@ $$F_{\mu}(t) =
 \begin{cases} \mu([0,t)), & \text{при } t > 0, \\ 0, & \text{при } t = 0, \\ -\mu([t,0)), & \text{при } t < 0,
 \end{cases}$$
 является неубывающей.
+\newpage
 \item Доказать, что для того, чтобы мера $\mu$ на $\mathcal{S}$ была счетно-аддитивной, необходимо и достаточно, чтобы соответствующая функция $F$ на $\mathbb{R}$ была непрерывна слева, т.е.
 $$F(t) - F(t-0) = \lim_{r \rightarrow 0} \mu([t-r, t)) = 0.$$
 \end{enumerate}
 \textit{Замечание.} Если $F(t) = t$, то $\mu_{F}$ на $\mathcal{S}$ совпадает с обычной длиной, а ее продолжение есть мера Лебега.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section02_Measure/Task13.lean}
+\inputminted{lean}{FunAn/Section02_Measure/Task13.lean}
 
+\newpage
 \item Доказать, что любое ограниченное измеримое по Лебегу множество $E$ на прямой такое, что $\mu(E) = p$, содержит измеримое подмножество меры $q$ $(0 \le q < p)$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section02_Measure/Task14.lean}
+\inputminted{lean}{FunAn/Section02_Measure/Task14.lean}
 
 \item Может ли равняться нулю мера Лебега множества, которое содержит хотя бы одну внутреннюю точку?
 
@@ -271,11 +254,11 @@ $$F(t) - F(t-0) = \lim_{r \rightarrow 0} \mu([t-r, t)) = 0.$$
 
 \item Пусть множество $E$ на прямой имеет Лебегову меру нуль. Должно ли и его замыкание иметь меру нуль?
 
+\newpage
 \item Пусть $A$ — неизмеримое множество, $B$ — множество меры нуль. Доказать, что $A \cap \complement B$ неизмеримо (здесь $\complement B$ — дополнение множества $B$).
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section02_Measure/Task18.lean}
+\inputminted{lean}{FunAn/Section02_Measure/Task18.lean}
 
 \end{enumerate}
 
@@ -289,75 +272,75 @@ $$F(t) - F(t-0) = \lim_{r \rightarrow 0} \mu([t-r, t)) = 0.$$
 
 \subsection*{ЗАДАЧИ}
 \begin{enumerate}
+\newpage
 \item Пусть функция $f$ измерима на множестве $E$, $E_{1}$ — измеримое подмножество множества $E$. Доказать, что $f$ измерима на $E_{1}$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section03_MeasurableFunctions/Task01.lean}
+\inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task01.lean}
 
 \item Доказать, что:
 \begin{enumerate}[label=\alph*)]
 \item функция, монотонная на отрезке $[a, b]$ вещественной оси измерима;
 \item непрерывные функции измеримы;
 \item сумма двух измеримых функций есть функция измеримая;
+\newpage
 \item функция ограниченной вариации на $[a, b]$ измерима.
 \end{enumerate}
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section03_MeasurableFunctions/Task02.lean}
-\lstinputlisting[language=Lean]{FunAn/Section03_MeasurableFunctions/Task02a.lean}
-\lstinputlisting[language=Lean]{FunAn/Section03_MeasurableFunctions/Task02d.lean}
+\inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task02.lean}
+\inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task02a.lean}
+\inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task02d.lean}
 
 \item Привести пример неизмеримой функции на отрезке $[0, 1]$.
 
+\newpage
 \item Пусть функция $g(x)$ измерима на $[0,1]$, $f(x)$ - непрерывна на $\mathbb{R}$. Показать, что $f(g(x))$ измерима.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section03_MeasurableFunctions/Task04.lean}
+\inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task04.lean}
 
+\newpage
 \item Верно ли, что если $g(x)$ непрерывна на $\mathbb{R}$, $f(x)$ измерима на $\mathbb{R}$, то $f(g(x))$ - измерима?
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section03_MeasurableFunctions/Task05.lean}
+\inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task05.lean}
 
+\newpage
 \item Доказать, что из сходимости последовательности функций $\{f_{n}\}_{n=1}^{\infty}$ почти всюду на измеримом множестве $E$ следует сходимость последовательности $\{f_{n}\}$ по мере на $E$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section03_MeasurableFunctions/Task06.lean}
+\inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task06.lean}
 
+\newpage
 \item Доказать, что две непрерывные на отрезке функции эквивалентны относительно меры Лебега (то есть равны почти всюду по мере Лебега) только тогда, когда они тождественно равны.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section03_MeasurableFunctions/Task07.lean}
+\inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task07.lean}
 
+\newpage
 \item Пусть $f(x)$ всюду дифференцируема на $[0,1]$. Доказать, что $f^{\prime}(x)$ измерима по Лебегу на $[0, 1]$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section03_MeasurableFunctions/Task08.lean}
+\inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task08.lean}
 
 \item Комплекснозначную функцию $f(x) = u(x) + iv(x)$ будем называть измеримой, если её вещественная $u(x)$ и мнимая $v(x)$ части измеримы.
 \begin{enumerate}[label=\alph*)]
 \item Доказать, что $|f(x)|$ и $\arg f(x)$ - измеримые функции.
+\newpage
 \item Доказать, что для измеримости комплекснозначной функции $f(x)$ необходимо и достаточно, чтобы измеримыми были все множества вида
 $$A_{r,z} = \{x : |f(x) - z| \le r\} \quad (z \in \mathbb{C}, r \ge 0).$$
 \end{enumerate}
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section03_MeasurableFunctions/Task09.lean}
+\inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task09.lean}
 
 \end{enumerate}
 
@@ -387,15 +370,16 @@ $$A_{r,z} = \{x : |f(x) - z| \le r\} \quad (z \in \mathbb{C}, r \ge 0).$$
 \end{cases}$ по квадрату $[0,1] \times [0,1]$.
 \end{enumerate}
 
+\newpage
 \item Пусть функция $f(x)$ ограничена и измерима по Лебегу на множестве $E$ конечной меры, т.е. $\mu(E) < +\infty$, $A \le f(x) \le B \ \forall x \in E$. Разобьём отрезок $[A, B]$ точками $y_{0} = A, y_{1}, y_{2}, \dots, y_{n} = B$. Обозначим через $d(y) = \max_{1 \le k \le n} |y_{k} - y_{k-1}|$ параметр разбиения. Рассмотрим множества $E_{k} = E(y_{k-1} \le f < y_{k})$. Выберем произвольные точки $\eta_{k} \in [y_{k-1}, y_{k})$, $k=1, 2, \dots, n$. Доказать, что при приведённых выше условиях суммируемость функции $f(x)$ на $E$ по Лебегу равносильна существованию предела
 $$F(f) \overset{\text{def}}{=} \lim_{d(y) \rightarrow 0} \sum_{k=1}^{n} \eta_{k} \cdot \mu(E_{k}).$$
 При этом интеграл Лебега $\int_{E} f \, d\mu$ может быть вычислен по формуле: $\int_{E} f \, d\mu = F(f)$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section04_LebesgueIntegral/Task02.lean}
+\inputminted{lean}{FunAn/Section04_LebesgueIntegral/Task02.lean}
 
+\newpage
 \item Обозначим через $\beta_{k}(x)$ число, стоящее на $k$-ом месте в разложении числа $x \in [0,1]$ в бесконечную двоичную дробь, т.е. если
 $$x = \frac{c_{1}}{2} + \frac{c_{2}}{2^{2}} + \frac{c_{3}}{2^{3}} + \dots$$
 где $c_{k}$ принимает значения 0 или 1, то $\beta_{k}(x) = c_{k}$. Докажите, что если $\mu$ - мера Лебега на прямой, то
@@ -404,24 +388,23 @@ $$ \int_{[0,1]} \beta_{i}(x)\beta_{j}(x) \, d\mu =
 \end{cases} $$
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section04_LebesgueIntegral/Task03.lean}
+\inputminted{lean}{FunAn/Section04_LebesgueIntegral/Task03.lean}
 
+\newpage
 \item Докажите, что если функция $\Phi(x)$ имеет производную почти всюду и $\Phi^{\prime}(x)$ ограничена на $[a,b]$, то $\Phi^{\prime}(x)$ интегрируема по Лебегу на $[a,b]$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section04_LebesgueIntegral/Task04.lean}
+\inputminted{lean}{FunAn/Section04_LebesgueIntegral/Task04.lean}
 
+\newpage
 \item Пусть $\{f_{n}(x)\}$ - последовательность измеримых ограниченных неотрицательных функций, определённых на множестве $E$, причём
 $$ \lim_{n \rightarrow \infty} \int_{E} f_{n}(x) \, d\mu = 0. $$
 Следует ли из этого, что $f_{n}(x) \rightarrow 0$ почти всюду?
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section04_LebesgueIntegral/Task05.lean}
+\inputminted{lean}{FunAn/Section04_LebesgueIntegral/Task05.lean}
 
 \end{enumerate}
 
@@ -435,12 +418,12 @@ $$ \lim_{n \rightarrow \infty} \int_{E} f_{n}(x) \, d\mu = 0. $$
 
 \subsection*{ЗАДАЧИ}
 \begin{enumerate}
+\newpage
 \item Пусть $\Phi(x)$ — функция ограниченной вариации на $[a, b]$. Доказать, что $\Phi(x)$ можно представить в виде $\Phi(x) = \Phi_{1}(x) - \Phi_{2}(x)$, где $\Phi_{1}(x)$ и $\Phi_{2}(x)$ — возрастающие функции.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section05_BVandRS/Task01.lean}
+\inputminted{lean}{FunAn/Section05_BVandRS/Task01.lean}
 
 \item Вычислить полную вариацию функции $f(x) = x^{2}$:
 \begin{enumerate}[label=\alph*)]
@@ -469,49 +452,50 @@ $$\Phi(x) =
 \item $\Phi(x) =
 \begin{cases} 0, & \text{при } x=0, \\ x^{2} \cos\frac{\pi}{x}, & \text{при } x\ne0
 \end{cases}$ \\ имеет ограниченную вариацию на отрезке $[0, 1]$;
+\newpage
 \item $\Phi(x) =
 \begin{cases} 0, & \text{при } x=0, \\ x^{2} \sin\frac{1}{x}, & \text{при } x\ne0
 \end{cases}$ \\ имеет неограниченную вариацию на отрезке $[0, \frac{2}{\pi}]$.
 \end{enumerate}
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section05_BVandRS/Task05.lean}
+\inputminted{lean}{FunAn/Section05_BVandRS/Task05.lean}
 
 \item Вычислить интеграл $\int_{-1}^{3} x \, d\Phi(x)$, где
 $$\Phi(x) =
 \begin{cases} 0, & \text{при } x=-1, \\ 1, & \text{при } x\in(-1, 2), \\ -1, & \text{при } x\in[2, 3].
 \end{cases}$$
 
+\newpage
 \item Пусть $\Phi(x) \in C^{(1)}[a, b]$. Доказать, что
 $$\int_{a}^{b} f(x) \, d\Phi(x) = \int_{a}^{b} f(x)\Phi^{\prime}(x) \, dx.$$
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section05_BVandRS/Task07.lean}
+\inputminted{lean}{FunAn/Section05_BVandRS/Task07.lean}
 
 \item Вычислить интеграл Римана-Стилтьеса $\int_{0}^{2} x^{2} \, d\Phi(x)$, где
 $$\Phi(x) =
 \begin{cases} -1, & \text{при } x\in[0, 1/2), \\ 0, & \text{при } x\in[1/2, 2/3), \\ 2, & \text{при } x=2/3, \\ -2, & \text{при } x\in(2/3, 2].
 \end{cases}$$
 
+\newpage
 \item Докажите, что если $\Phi$ — функция ограниченной вариации, а функция $f$ интегрируема по $\Phi$, то
 $$\left| \int_{a}^{b} f(x) \, d\Phi(x) \right| \le \left(\sup_{x\in[a, b]} |f(x)|\right) \cdot \text{Var}_{a}^{b}(\Phi).$$
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section05_BVandRS/Task09.lean}
+\inputminted{lean}{FunAn/Section05_BVandRS/Task09.lean}
 
+\newpage
 \item Доказать, что если функция $f$ непрерывна, то интеграл Римана-Стилтьеса $\int_{a}^{b} f(x) \, d\Phi(x)$ не зависит от значений, принимаемых функцией $\Phi$ в точках разрыва, лежащих внутри $(a, b)$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section05_BVandRS/Task10.lean}
+\inputminted{lean}{FunAn/Section05_BVandRS/Task10.lean}
 
+\newpage
 \item Пусть функция $f(x)$ непрерывна на отрезке $[a, b]$, а функция $\Phi(x)$ имеет на $[a, b]$ всюду, кроме конечного числа точек $c_{1}, \dots, c_{k}$, суммируемую по Риману производную $\Phi^{\prime}(x)$. Доказать, что при этих условиях существует интеграл Римана-Стилтьеса $\int_{a}^{b} f \, d\Phi$, и что он выражается формулой
 \begin{align*}
 \int_{a}^{b} f \, d\Phi &= \int_{a}^{b} f(x)\Phi^{\prime}(x) \, dx + f(a) \cdot [\Phi(a+0) - \Phi(a)] \\
@@ -519,9 +503,8 @@ $$\left| \int_{a}^{b} f(x) \, d\Phi(x) \right| \le \left(\sup_{x\in[a, b]} |f(x)
 \end{align*}
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section05_BVandRS/Task11.lean}
+\inputminted{lean}{FunAn/Section05_BVandRS/Task11.lean}
 
 \item Вычислить интегралы
 $$I_{1} = \int_{-2}^{2} x \, d\Phi(x), \quad I_{2} = 2\int_{-2}^{2} x^{2} \, d\Phi(x), \quad I_{3} = \int_{-2}^{2} (x^{3}+1) \, d\Phi(x),$$
@@ -547,19 +530,19 @@ $$\Phi(x) =
 \begin{enumerate}
 \item Пусть на множестве $X$ заданы две топологии $\tau_{1}$ и $\tau_{2}$. Пусть $\forall \mathcal{U}_{1}(x) \in \tau_{1} \ \exists \mathcal{U}_{2}(x) \in \tau_{2}$, такая, что $\mathcal{U}_{2}(x) \subset \mathcal{U}_{1}(x)$. Какая из топологий сильнее?
 
+\newpage
 \item Докажите, что для всякого отображения $f$ из множества $X$ в топологическое пространство $(Y, \tau_{Y})$ существует слабейшая из топологий в $X$, при которой $f$ непрерывно.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section06_TopologicalSpaces/Task02.lean}
+\inputminted{lean}{FunAn/Section06_TopologicalSpaces/Task02.lean}
 
+\newpage
 \item Докажите, что для любого отображения $f$ из топологического пространства $(X, \tau_{X})$ в множество $Y$ существует сильнейшая из топологий, при которой $f$ непрерывно.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section06_TopologicalSpaces/Task03.lean}
+\inputminted{lean}{FunAn/Section06_TopologicalSpaces/Task03.lean}
 
 \item Привести пример двух топологий $\tau_{1}$ и $\tau_{2}$ на множестве $X$ таких, что $\tau_{1}$ слабее $\tau_{2}$, $\tau_{1} \ne \tau_{2}$, и при этом топологические пространства $(X, \tau_{1})$ и $(X, \tau_{2})$ гомеоморфны.
 
@@ -668,35 +651,35 @@ $$\Phi(x) =
 \item В каком из пространств $l^{p}$, $l^{\infty}$, $s$ и при каком фиксированном $\alpha$ сходится последовательность
 $$x^{(n)} = \left(\frac{1}{n^{\alpha}}, \frac{1}{n^{\alpha}}, \dots, \frac{1}{n^{\alpha}}, 0, 0, \dots \right)?$$ (где $\frac{1}{n^{\alpha}}$ повторяется $n$ раз)
 
+\newpage
 \item Доказать, что для любых четырех точек $x, y, z, t$ метрического пространства справедливо „неравенство четырёхугольника“:
 $$|\rho(x, z) - \rho(y, t)| \le \rho(x, y) + \rho(z, t).$$
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section07_MetricSpaces/Task04.lean}
+\inputminted{lean}{FunAn/Section07_MetricSpaces/Task04.lean}
 
+\newpage
 \item Доказать, что $\rho(x, A) = 0$ тогда и только тогда, когда $x \in \overline{A}$, где $A$ — подмножество метрического пространства $X$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section07_MetricSpaces/Task05.lean}
+\inputminted{lean}{FunAn/Section07_MetricSpaces/Task05.lean}
 
+\newpage
 \item Доказать непрерывность функции $f(x) = \rho(x, A)$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section07_MetricSpaces/Task06.lean}
+\inputminted{lean}{FunAn/Section07_MetricSpaces/Task06.lean}
 
+\newpage
 \item Доказать, что множество $\mathcal{M} = \{x : \rho(x, A) < \epsilon\}$ открыто, а множество $\mathcal{N} = \{x : \rho(x, A) \le \epsilon\}$ замкнуто.\\
 \textit{Указание.} Доказать, что $\mathcal{M} = \bigcup_{y\in A} B(y, \epsilon)$. Использовать задачу 6.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section07_MetricSpaces/Task07.lean}
+\inputminted{lean}{FunAn/Section07_MetricSpaces/Task07.lean}
 
 \item Приведите пример последовательности дважды непрерывно дифференцируемых на отрезке $[a, b]$ функций, которая сходится в пространстве $C[a, b]$, но не сходится в пространстве $C^{(2)}[a, b]$.
 \end{enumerate}
@@ -713,14 +696,14 @@ $$|\rho(x, z) - \rho(y, t)| \le \rho(x, y) + \rho(z, t).$$
 
 \subsection*{ЗАДАЧИ}
 \begin{enumerate}
+\newpage
 \item На множестве $\mathbb{R}^{1}$ введены метрики
 $$\rho(x, y) = |x - y|, \quad \rho_{1}(x, y) = |\operatorname{arctg} x - \operatorname{arctg} y|.$$
 Показать, что в пространствах $(\mathbb{R}^{1}, \rho)$ и $(\mathbb{R}^{1}, \rho_{1})$ сходящиеся последовательности одни и те же, а фундаментальные различны.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section08_CompleteMetric/Task01.lean}
+\inputminted{lean}{FunAn/Section08_CompleteMetric/Task01.lean}
 
 \item Доказать полноту следующих метрических пространств:
 \begin{enumerate}[label=\alph*)]
@@ -732,30 +715,30 @@ $\rho(x, y) = \left( \sum_{k=1}^{\infty} k|\xi_{k} - \eta_{k}|^{p} \right)^{1/p}
 \item $l_{\infty} = \left\{x = (\xi_{1}, \xi_{2}, \dots) : \sup_{n\ge1} \left| \sum_{k=1}^{n} \xi_{k} \right| < \infty \right\}$, \\ $\rho(x, y) = \sup_{n\ge1} \left| \sum_{k=1}^{n} (\xi_{k} - \eta_{k}) \right|$;
 \item $c_{0} = \left\{x = (\xi_{1}, \xi_{2}, \dots) : \xi_{k} \in \mathbb{C}, \xi_{k} \rightarrow 0 \text{ при } k \rightarrow \infty\right\}$, \\ $\rho(x, y) = \max_{k\ge1} |\xi_{k} - \eta_{k}|$;
 \item $X = \{x \in C(\mathbb{R}^{1}) : x(t) \rightarrow 0 \text{ при } |t| \rightarrow \infty\}$, \\ $\rho(x, y) = \max_{t\in\mathbb{R}} |x(t) - y(t)|$;
+\newpage
 \item $X = \{x \in C[0, 1] : x(0) = 0\}$, $\rho(x, y) = \max_{0\le t\le1} |x(t) - y(t)|$.
 \end{enumerate}
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section08_CompleteMetric/Task02.lean}
+\inputminted{lean}{FunAn/Section08_CompleteMetric/Task02.lean}
 
+\newpage
 \item Доказать полноту пространства $\mathbb{N}$ с метрикой
 $$\rho(n, m) =
 \begin{cases} 0, & \text{если } n=m, \\ 1 + \frac{1}{n+m}, & \text{если } n \ne m.
 \end{cases}$$
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section08_CompleteMetric/Task03.lean}
+\inputminted{lean}{FunAn/Section08_CompleteMetric/Task03.lean}
 
+\newpage
 \item Доказать, что шары $B[n, 1+\frac{1}{2n}]$ пространства $\mathbb{N}$ (см. задачу 3) замкнуты и вложены, но не имеют общей точки. Почему это не противоречит принципу вложенных шаров?
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section08_CompleteMetric/Task04.lean}
+\inputminted{lean}{FunAn/Section08_CompleteMetric/Task04.lean}
 
 \item Привести пример метрического пространства, в котором существует последовательность замкнутых вложенных шаров, не имеющих общей точки, радиусы которых стремятся к нулю.
 
@@ -767,6 +750,7 @@ $$\rho(n, m) =
 \item $\mathbb{R}^{1}$, $\rho(x, y) = |\operatorname{arctg} x - \operatorname{arctg} y|$;
 \item $\mathbb{Z}$, $\rho(p, q) = |e^{ip} - e^{iq}|$;
 \item $X = \{x \in C^{\infty}[0, 1] : x^{(k)}(0) = x^{(k)}(1) = 0 \ \forall k \ge 0\}$, \\ $\rho(x, y) = \max_{0\le t\le1} |x(t) - y(t)|$;
+\newpage
 \item $C[0, 1]$, $\rho(x, y) = \max_{0\le t\le1} t|x(t) - y(t)|$.
 \end{enumerate}
 \textit{Указание.} Рассмотреть
@@ -775,9 +759,8 @@ $$x_{n}(t) =
 \end{cases}$$
 См. также задачу 8.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section08_CompleteMetric/Task06.lean}
+\inputminted{lean}{FunAn/Section08_CompleteMetric/Task06.lean}
 
 \end{enumerate}
 
@@ -792,84 +775,84 @@ $$x_{n}(t) =
 
 \subsection*{ЗАДАЧИ}
 \begin{enumerate}
+\newpage
 \item Доказать счетность множества финитных числовых последовательностей с рациональными членами.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section09_Separable/Task01.lean}
+\inputminted{lean}{FunAn/Section09_Separable/Task01.lean}
 
+\newpage
 \item Доказать счетность множества многочленов с рациональными коэффициентами.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section09_Separable/Task02.lean}
+\inputminted{lean}{FunAn/Section09_Separable/Task02.lean}
 
+\newpage
 \item Доказать, что множество $A=\{z=e^{in} : n\in\mathbb{Z}\}$ плотно в множестве $E=\{z\in\mathbb{C} : |z|=1\}$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section09_Separable/Task03.lean}
+\inputminted{lean}{FunAn/Section09_Separable/Task03.lean}
 
+\newpage
 \item Доказать, что множество
 $$B=\{x=(\xi_{1},\xi_{2},\dots,\xi_{n},0,0,\dots) : \xi_{k}\in\mathbb{C}\}$$
 нигде не плотно в $l^{p}$ ($n$ — фиксировано).
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section09_Separable/Task04.lean}
+\inputminted{lean}{FunAn/Section09_Separable/Task04.lean}
 
+\newpage
 \item Доказать, что пространства $\mathbb{R}^{n}$, $C[a,b]$, $l^{p}$, $s$, $C^{(m)}[a,b]$, $L^{p}(a,b)$ сепарабельны $(1\le p<\infty)$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section09_Separable/Task05.lean}
+\inputminted{lean}{FunAn/Section09_Separable/Task05.lean}
 
+\newpage
 \item Доказать, что $l^{\infty}$ не является сепарабельным.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section09_Separable/Task06.lean}
+\inputminted{lean}{FunAn/Section09_Separable/Task06.lean}
 
+\newpage
 \item Доказать, что пространство $M[a,b]$ ограниченных на $[a, b]$ функций с метрикой $\rho(x,y)=\sup_{a\le t\le b}|x(t)-y(t)|$ не является сепарабельным.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section09_Separable/Task07.lean}
+\inputminted{lean}{FunAn/Section09_Separable/Task07.lean}
 
+\newpage
 \item Доказать, что совокупность подпоследовательностей последовательности натуральных чисел несчетно.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section09_Separable/Task08.lean}
+\inputminted{lean}{FunAn/Section09_Separable/Task08.lean}
 
+\newpage
 \item Доказать, что мощность сепарабельного пространства не превосходит мощности континуума.\\
 \textit{Указание.} Использовать задачу 8.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section09_Separable/Task09.lean}
+\inputminted{lean}{FunAn/Section09_Separable/Task09.lean}
 
+\newpage
 \item Доказать сепарабельность пространства $l_{\{k\}}^{p}$ (см. задачу 2a).
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section09_Separable/Task10.lean}
+\inputminted{lean}{FunAn/Section09_Separable/Task10.lean}
 
+\newpage
 \item Доказать несепарабельность пространства $l_{\infty}$ (см. задачу 2e).
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section09_Separable/Task11.lean}
+\inputminted{lean}{FunAn/Section09_Separable/Task11.lean}
 
 \end{enumerate}
 
@@ -891,47 +874,48 @@ $$B=\{x=(\xi_{1},\xi_{2},\dots,\xi_{n},0,0,\dots) : \xi_{k}\in\mathbb{C}\}$$
 \item $(Ax)(t)=x^{\prime}(t)$, $A:C^{(1)}[0,2]\rightarrow C[0,2]$, \\ причём расстояние в $C^{(1)}[0,2]$ определено так же, как в $C[0,2]$.
 \end{enumerate}
 
+\newpage
 \item Проверьте, что функция $f(x)=\sqrt{1+x^{2}}$, определённая на $[0, +\infty)$, удовлетворяет условию $|f(x)-f(y)|<|x-y|$ при $x\ne y$, однако уравнение $x=f(x)$ не имеет решений.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section10_Contraction/Task02.lean}
+\inputminted{lean}{FunAn/Section10_Contraction/Task02.lean}
 
+\newpage
 \item Покажите, что отображение $f(x)=\frac{x^{2}+2}{2x}$ является сжимающим на отрезке $[1, 2]$. Вычислите несколько итераций по формуле $x_{0}=1$, $x_{k+1}=f(x_{k})$, $k=0,1,\dots$, и сравните их с табличным значением $\sqrt{2}$ (решение уравнения $x=f(x)$, лежащее на отрезке $[1,2]$).
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section10_Contraction/Task03.lean}
+\inputminted{lean}{FunAn/Section10_Contraction/Task03.lean}
 
+\newpage
 \item Пусть $f(x)=\frac{\pi}{2}+x-\operatorname{arctg} x$, $x\in\mathbb{R}^{1}$. Доказать, что для любых $x, y\in\mathbb{R}^{1}$ найдется постоянная $\alpha<1$ такая, что
 $$|f(x)-f(y)|\le\alpha|x-y|,$$
 но $f$ не имеет неподвижных точек. Почему это не противоречит принципу сжимающих отображений?
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section10_Contraction/Task04.lean}
+\inputminted{lean}{FunAn/Section10_Contraction/Task04.lean}
 
 \item При каких $\lambda$ и $\beta$ отображение $(Ax)(t)=\lambda\cdot x(t^{\beta})$ является сжимающим в $C[0,1]$? В $L^{2}(0,1)$?
 
+\newpage
 \item Доказать, что если $\sup_{j\ge1}\sum_{i=1}^{\infty}|a_{ij}|<1$, то бесконечная система линейных алгебраических уравнений
 $$x_{i}=\sum_{j=1}^{\infty}a_{ij}x_{j}+b_{i} \quad (i=1,2,\dots)$$
 имеет единственное решение $x=(x_{1},x_{2},\dots)\in l^{1}$ для любой последовательности $b=(b_{1},b_{2},\dots)\in l^{1}$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section10_Contraction/Task06.lean}
+\inputminted{lean}{FunAn/Section10_Contraction/Task06.lean}
 
+\newpage
 \item Доказать, что если $\sup_{i\ge1}\sum_{j=1}^{\infty}|a_{ij}|<1$, то утверждение задачи 6 верно в пространстве $l^{\infty}$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section10_Contraction/Task07.lean}
+\inputminted{lean}{FunAn/Section10_Contraction/Task07.lean}
 
+\newpage
 \item Проверить, что интегральное уравнение Вольтерра
 $$x(t)=\int_{0}^{t}K(t,s)x(s) \, ds,$$
 где
@@ -941,9 +925,8 @@ $$K(t,s)=
 имеет бесконечно много решений $x(t)=\frac{c}{t}$. Почему это не противоречит теореме о существовании и единственности решения уравнения Вольтерра?
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section10_Contraction/Task08.lean}
+\inputminted{lean}{FunAn/Section10_Contraction/Task08.lean}
 
 \item При каких $\lambda$ применим принцип сжимающих отображений в пространствах $L^{2}(a,b)$ и $C[a,b]$ к уравнению Фредгольма 2-го рода
 $$x(t)=\lambda\int_{a}^{b}K(t,s)x(s) \, ds+y(t) ?$$
@@ -1036,30 +1019,30 @@ $\overline{x}(t_{k})$ & & & & \\
 
 \subsection*{ЗАДАЧИ}
 \begin{enumerate}
+\newpage
 \item Доказать, что аксиома треугольника в определении нормы эквивалентна выпуклости единичного шара.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section11_NormedSpaces/Task01.lean}
+\inputminted{lean}{FunAn/Section11_NormedSpaces/Task01.lean}
 
 \item Можно ли в пространстве $s$ ввести норму, определяющую известную метрику?
+\newpage
 \item Доказать, что нормированное пространство $X$ является банаховым пространством тогда и только тогда, когда всякий ряд $\sum_{k=1}^{\infty}x_{k}$, для которого $\sum_{k=1}^{\infty}||x_{k}||<\infty$, сходится в $X$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section11_NormedSpaces/Task03.lean}
+\inputminted{lean}{FunAn/Section11_NormedSpaces/Task03.lean}
 
+\newpage
 \item Доказать, что $l^{p}\subset l^{q}$ при $p<q$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section11_NormedSpaces/Task04.lean}
+\inputminted{lean}{FunAn/Section11_NormedSpaces/Task04.lean}
 
+\newpage
 \item Доказать, что $L^{p}(a,b)\supset L^{q}(a,b)$ при $p<q$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section11_NormedSpaces/Task05.lean}
+\inputminted{lean}{FunAn/Section11_NormedSpaces/Task05.lean}
 
 \item Можно ли в $C^{(1)}[a,b]$ ввести нормы по формулам:
 \begin{enumerate}[label=\alph*)]
@@ -1068,70 +1051,70 @@ $\overline{x}(t_{k})$ & & & & \\
 \item $||x||=|x(a)|+\max_{a\le t\le b}|x^{\prime}(t)|$;
 \item $||x||=\int_{a}^{b}|x(t)| \, dt+\max_{a\le t\le b}|x^{\prime}(t)|$.
 \end{enumerate}
+\newpage
 \item Доказать, что нормы $||x||=\max_{a\le t\le b}|x(t)|$ и $||x||_{1}=\int_{a}^{b}|x(t)| \, dt$ не эквивалентны на $C[a,b]$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section11_NormedSpaces/Task07.lean}
+\inputminted{lean}{FunAn/Section11_NormedSpaces/Task07.lean}
 
+\newpage
 \item Доказать, что $C[a,b]$ с нормой $||x||=\int_{a}^{b}|x(t)| \, dt$ не полно.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section11_NormedSpaces/Task08.lean}
+\inputminted{lean}{FunAn/Section11_NormedSpaces/Task08.lean}
 
+\newpage
 \item Показать, что нормы $\max(||x_{1}||,||x_{2}||)$, $||x_{1}||+||x_{2}||$, $\sqrt{||x_{1}||^{2}+||x_{2}||^{2}}$ эквивалентны на $E\times E$, где $|| \cdot ||$ — норма в $E$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section11_NormedSpaces/Task09.lean}
+\inputminted{lean}{FunAn/Section11_NormedSpaces/Task09.lean}
 
+\newpage
 \item Доказать, что конечномерное подпространство нормированного пространства всегда замкнуто.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section11_NormedSpaces/Task10.lean}
+\inputminted{lean}{FunAn/Section11_NormedSpaces/Task10.lean}
 
+\newpage
 \item Если $L$ — подпространство нормированного пространства $E$, то для любого $\alpha<1$ существует $y\in E$, $||y||=1$, такой, что $\rho(y,L)>\alpha$. Доказать.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section11_NormedSpaces/Task11.lean}
+\inputminted{lean}{FunAn/Section11_NormedSpaces/Task11.lean}
 
+\newpage
 \item В бесконечномерном нормированном пространстве существует бесконечное ограниченное множество, элементы которого удалены друг от друга на расстояние $>0,5$. Доказать.\\
 \textit{Указание.} Использовать задачу 11.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section11_NormedSpaces/Task12.lean}
+\inputminted{lean}{FunAn/Section11_NormedSpaces/Task12.lean}
 
+\newpage
 \item Показать на примере $E=C[-1,1]$,
 $$L=\left\{x(t)\in C[-1,1] : \int_{-1}^{0}x(t) \, dt=\int_{0}^{1}x(t) \, dt\right\},$$
 что постоянную $\alpha$ в задаче 11 нельзя заменить на 1.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section11_NormedSpaces/Task13.lean}
+\inputminted{lean}{FunAn/Section11_NormedSpaces/Task13.lean}
 
 \item В пространстве $\mathbb{R}^{2}$ с нормой $||x||=\max\{|\xi_{1}|,|\xi_{2}|\}$ найти подпространство $L$ и точку $x_{0}$ такие, что ближайший элемент в $L$ до $x_{0}$ не единственный.
+\newpage
 \item Доказать, что множество $\mathcal{M}=\{x\in l^{1}:||x||_{2}\le1\}$ не является замкнутым множеством в $l^{2}$, если $||x||_{2}=\left(\sum_{k=1}^{\infty}|\xi_{k}|^{2}\right)^{1/2}$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section11_NormedSpaces/Task15.lean}
+\inputminted{lean}{FunAn/Section11_NormedSpaces/Task15.lean}
 
+\newpage
 \item Доказать, что множество $\mathcal{M}=\{x\in C^{(1)}[-1,1]:||x||_{1}\le1\}$ не является замкнутым в $C[-1,1]$ с $||x||=\max_{|t|\le1}|x(t)|$, где $||x||_{1}=\max_{|t|\le1}|x(t)|+\max_{|t|\le1}|x^{\prime}(t)|$.\\
 \textit{Указание.} Рассмотреть $x_{n}(t)=\frac{1}{3}\cdot\sqrt{t^{2}+\frac{1}{n^{2}}}$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section11_NormedSpaces/Task16.lean}
+\inputminted{lean}{FunAn/Section11_NormedSpaces/Task16.lean}
 
+\newpage
 \item Доказать, что замкнутый единичный шар пространства $l^{1}$ — замкнутое множество пространства $l^{2}$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section11_NormedSpaces/Task17.lean}
+\inputminted{lean}{FunAn/Section11_NormedSpaces/Task17.lean}
 
 \item Является ли пространство $c$ всех сходящихся к конечному пределу числовых последовательностей банаховым пространством, если $||x||=\sup_{k\ge1}|\xi_{k}|$?
 \end{enumerate}
@@ -1148,50 +1131,51 @@ $$L=\left\{x(t)\in C[-1,1] : \int_{-1}^{0}x(t) \, dt=\int_{0}^{1}x(t) \, dt\righ
 
 \subsection*{ЗАДАЧИ}
 \begin{enumerate}
+\newpage
 \item Доказать, что формула $(x,y)=\sum_{k=1}^{\infty}\alpha_{k}\xi_{k}\overline{\eta}_{k}$, $0<\alpha_{k}\le1$, определяет скалярное произведение в $l^{2}$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section12_HilbertSpaces/Task01.lean}
+\inputminted{lean}{FunAn/Section12_HilbertSpaces/Task01.lean}
 
+\newpage
 \item Доказать равенство параллелограмма:
 $$||x+y||^{2}+||x-y||^{2}=2||x||^{2}+2||y||^{2}, \quad \forall x,y\in H.$$
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section12_HilbertSpaces/Task02.lean}
+\inputminted{lean}{FunAn/Section12_HilbertSpaces/Task02.lean}
 
+\newpage
 \item Доказать, что пространства $l^{p}$ и $L^{p}(a,b)$ являются гильбертовыми тогда и только тогда, когда $p=2$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section12_HilbertSpaces/Task03.lean}
+\inputminted{lean}{FunAn/Section12_HilbertSpaces/Task03.lean}
 
+\newpage
 \item Доказать, что пространство $C[0,\pi]$ не является гильбертовым.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section12_HilbertSpaces/Task04.lean}
+\inputminted{lean}{FunAn/Section12_HilbertSpaces/Task04.lean}
 
+\newpage
 \item Доказать поляризационное тождество:
 $$4(x,y)=||x+y||^{2}-||x-y||^{2}+i||x+iy||^{2}-i||x-iy||^{2}.$$
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section12_HilbertSpaces/Task05.lean}
+\inputminted{lean}{FunAn/Section12_HilbertSpaces/Task05.lean}
 
+\newpage
 \item Доказать, что для любого $\mathcal{M}\subset H$ множество $\mathcal{M}^{\perp}$ является замкнутым подпространством.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section12_HilbertSpaces/Task06.lean}
+\inputminted{lean}{FunAn/Section12_HilbertSpaces/Task06.lean}
 
+\newpage
 \item Доказать, что если $\mathcal{M}, \mathcal{N}$ — замкнутые подпространства в $H$ и $\mathcal{M}\perp\mathcal{N}$, то $\mathcal{M}+\mathcal{N}$ также замкнутое подпространство.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section12_HilbertSpaces/Task07.lean}
+\inputminted{lean}{FunAn/Section12_HilbertSpaces/Task07.lean}
 
+\newpage
 \item Доказать, что
 $$\mathcal{M}=\left\{x\in l^{2}:x=\left(\xi_{1},\frac{\xi_{1}}{1},\xi_{3},\frac{\xi_{3}}{3},\xi_{5},\frac{\xi_{5}}{5},\dots\right)\right\},$$
 и
@@ -1199,42 +1183,41 @@ $$\mathcal{N}=\left\{x\in l^{2}:x=(\xi_{1},0,\xi_{3},0,\xi_{5},0,\dots)\right\}$
 являются замкнутыми подпространствами, но $\mathcal{M}+\mathcal{N}$ не является замкнутым подпространством в $l^{2}$.\\
 \textit{Указание.} Проверить, что $\overline{\mathcal{M}+\mathcal{N}}=l^{2}$, $\mathcal{M}+\mathcal{N}\ne l^{2}$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section12_HilbertSpaces/Task08.lean}
+\inputminted{lean}{FunAn/Section12_HilbertSpaces/Task08.lean}
 
+\newpage
 \item Пусть $\{e_{k}\}$ — ортонормированная система в $H$. Положим $x_{k}=(\cos\frac{1}{k})e_{2k}+(\sin\frac{1}{k})e_{2k+1}$. Доказать, что множество $L+\mathcal{M}$ не замкнуто, где $L$ — замкнутое подпространство, порожденное системой $\{e_{2k}\}$, a $\mathcal{M}$ — замкнутое подпространство, порожденное системой $\{x_{k}\}$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section12_HilbertSpaces/Task09.lean}
+\inputminted{lean}{FunAn/Section12_HilbertSpaces/Task09.lean}
 
 \item Для функции $e^{t}$ найти многочлены $p_{n}(t)$ степени $n=0,1,2$ такие, что $||e^{t}-p_{n}(t)||$ минимальна в $L^{2}(-1,1)$.
 \item Для функции $t^{3}$ найти многочлены $p_{n}(t)$ степени $n=0,1,2$ такие, что $||t^{3}-p_{n}(t)||$ минимальна в $L^{2}(-1,1)$.
+\newpage
 \item Доказать, что результатом процесса ортогонализации системы элементов $\{t^{n}\}_{n=0}^{\infty}$ в пространстве $L^{2}(-1,1)$ является система многочленов Лежандра $p_{n}(t)=c_{n}\frac{d^{n}}{dt^{n}}[(t^{2}-1)^{n}]$. Чему равны коэффициенты $c_{n}$?
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section12_HilbertSpaces/Task12.lean}
+\inputminted{lean}{FunAn/Section12_HilbertSpaces/Task12.lean}
 
+\newpage
 \item Пусть $x_{n}(t)=(-1)^{k}$, $t\in\left(\frac{k}{2^{n}},\frac{k+1}{2^{n}}\right)$, $n=0,1,\dots; k=0,1,\dots,2^{n}-1$, в концах этих интервалов $x_{n}(t)=0$. Показать, что эта система (система Радемахера) ортонормальна в $L^{2}(0,1)$, но не является базисом.\\
 \textit{Указание.} Проверить, что функция $x(t)=t(t-1)+\frac{1}{6}$ ортогональна всем $x_{n}(t)$ в $L^{2}(0,1)$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section12_HilbertSpaces/Task13.lean}
+\inputminted{lean}{FunAn/Section12_HilbertSpaces/Task13.lean}
 
+\newpage
 \item Проверить, что система $\left\{\sqrt{\frac{2}{\pi}}\sin nt\right\}_{n=1}^{\infty}$ — ортонормальный базис в $L^{2}(0,\pi)$, но она не нормирована в $L^{2}(-\pi,\pi)$ и не является базисом.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section12_HilbertSpaces/Task14.lean}
+\inputminted{lean}{FunAn/Section12_HilbertSpaces/Task14.lean}
 
+\newpage
 \item Доказать, что система $\{x_{n}(t)=\sin \mu_{n}t\}$, где $\mu_{n}$ — положительные корни уравнения $\operatorname{tg} \mu=\mu$, ортогональна, не нормирована и не образует базис в $L^{2}(0,1)$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section12_HilbertSpaces/Task15.lean}
+\inputminted{lean}{FunAn/Section12_HilbertSpaces/Task15.lean}
 
 \item Найти $\mathcal{M}^{\perp}$ в $H$, если:
 \begin{enumerate}[label=\alph*)]
@@ -1242,11 +1225,11 @@ $$\mathcal{N}=\left\{x\in l^{2}:x=(\xi_{1},0,\xi_{3},0,\xi_{5},0,\dots)\right\}$
 \item $H=L^{2}(-\pi,\pi)$, $\mathcal{M}=\{\sin nt\}_{n=1}^{\infty}$;
 \item $H=L^{2}(-\pi,\pi)$, $\mathcal{M}=\{\cos nt\}_{n=0}^{\infty}$.
 \end{enumerate}
+\newpage
 \item Пусть $\mathcal{M}=\left\{x=(\xi_{1},\xi_{2},\dots)\in l^{2} : \sum_{i=1}^{\infty}\xi_{i}=0\right\}$. Доказать, что $\mathcal{M}$ — линейное многообразие, всюду плотное в $l^{2}$, то есть $\mathcal{M}^{\perp}=\{\theta\}$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section12_HilbertSpaces/Task17.lean}
+\inputminted{lean}{FunAn/Section12_HilbertSpaces/Task17.lean}
 
 \end{enumerate}
 
@@ -1288,11 +1271,11 @@ $$F(x) = \int_{a}^{b} p(t)x(t) \, dt, \quad F: C[a,b] \rightarrow \mathbb{R}^{1}
 где $p(t) \in C[a,b]$ — фиксированная функция.\\
 \textit{Указание.} Воспользоваться тем, что непрерывная функция есть равномерный предел кусочно-постоянных функций.
 
+\newpage
 \item Доказать, что $F(x) = x^{\prime}(0) + x(0)$ является линейным непрерывным функционалом в пространстве $C^{(1)}[0,2]$, если $||x|| = \max_{0 \le t \le 2} |x(t)| + \max_{0 \le t \le 2} |x^{\prime}(t)|$, но не является непрерывным, если $||x|| = \max_{0 \le t \le 2} |x(t)|$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section13_LinearFunctionals/Task04.lean}
+\inputminted{lean}{FunAn/Section13_LinearFunctionals/Task04.lean}
 
 \end{enumerate}
 
@@ -1307,12 +1290,12 @@ $$F(x) = \int_{a}^{b} p(t)x(t) \, dt, \quad F: C[a,b] \rightarrow \mathbb{R}^{1}
 
 \subsection*{ЗАДАЧИ}
 \begin{enumerate}
+\newpage
 \item Найти общий вид линейного оператора $A: \mathbb{R}^{n} \rightarrow \mathbb{R}^{n}$. Показать, что он ограничен.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section14_LinearOperators/Task01.lean}
+\inputminted{lean}{FunAn/Section14_LinearOperators/Task01.lean}
 
 \item Проверить линейность, ограниченность, непрерывность следующих операторов. Найти их нормы, если они линейны и ограничены.
 \begin{enumerate}[label=\alph*)]
@@ -1334,18 +1317,18 @@ $$F(x) = \int_{a}^{b} p(t)x(t) \, dt, \quad F: C[a,b] \rightarrow \mathbb{R}^{1}
 
 \item Для каких $\alpha, \beta$ оператор $(Ax)(t) = t^{\beta} \cdot x(t^{\alpha})$ ограничен в $L^{2}(0,1)$? Найти $||A||$.
 
+\newpage
 \item Доказать, что если $A: X \rightarrow Y$ — линейный непрерывный оператор, то он остается непрерывным при замене нормы в $X$ и $Y$ на эквивалентные.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section14_LinearOperators/Task06.lean}
+\inputminted{lean}{FunAn/Section14_LinearOperators/Task06.lean}
 
+\newpage
 \item Пусть $L$ — замкнутое подпространство гильбертова пространства $H$. Доказать линейность, непрерывность и найти норму оператора $P: H \rightarrow L$, который каждому элементу $x \in H$ сопоставляет его проекцию на $L$ ($P$ называется проектором на $L$).
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section14_LinearOperators/Task07.lean}
+\inputminted{lean}{FunAn/Section14_LinearOperators/Task07.lean}
 
 \end{enumerate}
 
@@ -1360,6 +1343,7 @@ $$F(x) = \int_{a}^{b} p(t)x(t) \, dt, \quad F: C[a,b] \rightarrow \mathbb{R}^{1}
 
 \subsection*{ЗАДАЧИ}
 \begin{enumerate}
+\newpage
 \item Пусть оператор $A: \mathbb{R}^{3} \rightarrow \mathbb{R}^{3}$ определяется равенством:
 $$
 \begin{pmatrix} \eta_{1} \\ \eta_{2} \\ \eta_{3}
@@ -1371,18 +1355,17 @@ $$
 Доказать ограниченность оператора $A$, оценить $||A||$, найти $A^{-1}$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section15_InverseOperators/Task01.lean}
+\inputminted{lean}{FunAn/Section15_InverseOperators/Task01.lean}
 
 \item При каких $\alpha_{1}, \alpha_{2}, \dots$ существует обратный оператор к оператору $Ax = (\alpha_{1}\xi_{1}, \alpha_{2}\xi_{2}, \dots)$, $A: l^{2} \rightarrow l^{2}$? Когда $A^{-1}$ непрерывен?
 
+\newpage
 \item Проверить, что оператор дифференцирования $\frac{d}{dt}: C^{(1)}[0,1] \rightarrow C[0,1]$ имеет правый обратный, но не имеет левого обратного.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section15_InverseOperators/Task03.lean}
+\inputminted{lean}{FunAn/Section15_InverseOperators/Task03.lean}
 
 \item Найти обратный оператор к оператору $\frac{d}{dt}: X \rightarrow C[0,1]$, где $X = \{x \in C^{(1)}[0,1] : x(0) = 0\}$.
 
@@ -1405,28 +1388,28 @@ $$(Ax)(t) = \int_{0}^{t} x(\xi) \, d\xi + \lambda \cdot x(t), \quad A: C[0,1] \r
 \item Пусть $A, B \in \mathcal{L}(X,X)$. Доказать, что
 \begin{enumerate}[label=\alph*)]
 \item если существуют $A^{-1}, B^{-1}$, то $(AB)^{-1} = B^{-1}A^{-1}$;
+\newpage
 \item если существуют $A^{-1}, (BA)^{-1}$, то существует $B^{-1}$.
 \end{enumerate}
 \textit{Указание.} $B^{-1} = A(BA)^{-1}$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section15_InverseOperators/Task09.lean}
+\inputminted{lean}{FunAn/Section15_InverseOperators/Task09.lean}
 
+\newpage
 \item Пусть $X$ — банахово пространство с нормами $|| \cdot ||_{1}$ и $|| \cdot ||_{2}$. Если $\exists C_{1} > 0$ такое, что $C_{1}||x||_{1} \le ||x||_{2}$ для $x \in X$, то $\exists C_{2} < \infty$ такое, что $||x||_{2} \le C_{2}||x||_{1}$, $x \in X$. Доказать.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section15_InverseOperators/Task10.lean}
+\inputminted{lean}{FunAn/Section15_InverseOperators/Task10.lean}
 
+\newpage
 \item Пусть $A, B \in \mathcal{L}(X,X)$, причем существует $(I - AB)^{-1}$. Доказать, что существует $(I - BA)^{-1}$.\\
 \textit{Указание.} $(I - BA)^{-1} = I + B(I - AB)^{-1}A$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section15_InverseOperators/Task11.lean}
+\inputminted{lean}{FunAn/Section15_InverseOperators/Task11.lean}
 
 \end{enumerate}
 
@@ -1483,26 +1466,27 @@ $$(Ax)(t) = \int_{0}^{t} x(\xi) \, d\xi + \lambda \cdot x(t), \quad A: C[0,1] \r
 \item $1 < p < \infty$.
 \end{enumerate}
 
+\newpage
 \item Доказать, что последовательность функционалов
 $$F_{n}(x) = \int_{-\pi}^{\pi} x(t) e^{int} \, dt$$
 слабо сходится в $L^{2}(-\pi,\pi)$, но сильной сходимости нет.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section17_HahnBanach/Task03.lean}
+\inputminted{lean}{FunAn/Section17_HahnBanach/Task03.lean}
 
+\newpage
 \item Покажите, что существует последовательность конечных линейных комбинаций функционалов $F_{t}(x) = x(t)$, сходящаяся слабо к функционалу $F(x) = \int_{0}^{1} x(t) \, dt$ (функционалы определены в пространстве $C[0,1]$). Имеется ли последовательность, сходящаяся по норме?
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section17_HahnBanach/Task04.lean}
+\inputminted{lean}{FunAn/Section17_HahnBanach/Task04.lean}
 
 \item Пусть $F_{n}(x) = n \cdot \left[x(\frac{1}{n}) + x(-\frac{1}{n}) - 2x(0)\right]$. Показать, что последовательность $\{F_{n}\}$:
 \begin{enumerate}[label=\alph*)]
 \item сходится по норме к $F(x) \equiv 0$ в $C^{(2)}[-1,1]$;
 \item сходится слабо к $0$ в $C^{(1)}[-1,1]$, но не сходится сильно;
+\newpage
 \item не сходится даже слабо в $C[-1,1]$.
 \end{enumerate}
 \textit{Указания.} (i) Использовать формулу Тейлора. (ii) Оценить нормы $||F_{n}||$ снизу:
@@ -1512,28 +1496,27 @@ $$x_{n}^{\prime}(t) =
 (iii) Показать, что последовательность $\{||F_{n}||\}$ неограничена.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section17_HahnBanach/Task05.lean}
+\inputminted{lean}{FunAn/Section17_HahnBanach/Task05.lean}
 
 \item Пусть $F_{n}(x) = n^{2} \cdot \left[x(\frac{1}{n}) + x(-\frac{1}{n}) - 2x(0)\right]$, $F(x) = x^{\prime\prime}(0)$. Показать, что последовательность $\{F_{n}\}$:
 \begin{enumerate}[label=\alph*)]
 \item сходится к $F$ по норме в $C^{(3)}[-1,1]$;
 \item сходится слабо к $F$ в $C^{(2)}[-1,1]$, но не сходится сильно;
+\newpage
 \item не сходится даже слабо в $C^{(1)}[-1,1]$.
 \end{enumerate}
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section17_HahnBanach/Task06.lean}
+\inputminted{lean}{FunAn/Section17_HahnBanach/Task06.lean}
 
+\newpage
 \item Доказать, что слабая сходимость в $l^{2}$ сильнее покоординатной сходимости.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section17_HahnBanach/Task07.lean}
+\inputminted{lean}{FunAn/Section17_HahnBanach/Task07.lean}
 
 \item Какие из последовательностей сходятся сильно, слабо в $l^{2}$?
 \begin{enumerate}[label=\alph*)]
@@ -1568,12 +1551,12 @@ $$x_{n}^{\prime}(t) =
 \begin{enumerate}[label=\alph*)]
 \item $||x_{n}|| \rightarrow ||x||$;
 \item $||x_{n}|| \le ||x||$ $\forall n > N_{0}$;
+\newpage
 \item $\lim_{n \rightarrow \infty} ||x_{n}|| \le ||x||$.
 \end{enumerate}
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section17_HahnBanach/Task10.lean}
+\inputminted{lean}{FunAn/Section17_HahnBanach/Task10.lean}
 
 \end{enumerate}
 
@@ -1615,25 +1598,25 @@ $$
 \item $X = L^{2}(0,1)$, $(Ax)(t) = \int_{0}^{1} t \cdot x(s) \, ds$.
 \end{enumerate}
 
+\newpage
 \item Пусть оператор $\Phi: \mathcal{L}(X,Y) \rightarrow \mathcal{L}(Y^{*},X^{*})$ определяется равенством $\Phi(A) = A^{*}$, где $X, Y$ — нормированные пространства. Доказать, что $\Phi$ непрерывен.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section18_AdjointOperators/Task04.lean}
+\inputminted{lean}{FunAn/Section18_AdjointOperators/Task04.lean}
 
+\newpage
 \item Доказать, что если $A \in \mathcal{L}(X,Y)$ и $A^{-1} \in \mathcal{L}(Y,X)$, то существует $(A^{*})^{-1} \in \mathcal{L}(X^{*},Y^{*})$, причём $(A^{*})^{-1} = (A^{-1})^{*}$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section18_AdjointOperators/Task05.lean}
+\inputminted{lean}{FunAn/Section18_AdjointOperators/Task05.lean}
 
+\newpage
 \item Пусть $X$ — рефлексивное банахово пространство, $Y$ — нормированное, $A \in \mathcal{L}(X,Y)$. Доказать, что $(A^{*})^{*} = A$ как оператор из $X$ в $Y$.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section18_AdjointOperators/Task06.lean}
+\inputminted{lean}{FunAn/Section18_AdjointOperators/Task06.lean}
 
 \end{enumerate}
 
@@ -1648,43 +1631,43 @@ $$
 
 \subsection*{ЗАДАЧИ}
 \begin{enumerate}
+\newpage
 \item Доказать, что если $A_{n} \in \mathcal{L}(\mathbb{R}^{m},\mathbb{R}^{m})$, то из слабой сходимости последовательности $\{A_{n}\}$ следует равномерная сходимость.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section19_OperatorConvergence/Task01.lean}
+\inputminted{lean}{FunAn/Section19_OperatorConvergence/Task01.lean}
 
 \item Пусть $A_{n}x = (0, \dots, 0, \frac{\xi_{n+1}}{n+1}, \frac{\xi_{n+2}}{n+2}, \dots)$, $B_{n}x = (\xi_{1}, \dots, \xi_{n}, 0, 0, \dots)$, $C_{n}x = (\underbrace{0, 0, \dots, 0}_{n}, \xi_{1}, 0, 0, \dots)$ — операторы в $l^{2}$. Доказать, что:
 \begin{enumerate}[label=\alph*)]
 \item $\{A_{n}\}$ сходится равномерно к нулевому оператору;
 \item $\{B_{n}\}$ сильно сходится к единичному оператору, а равномерно не сходится;
+\newpage
 \item $\{C_{n}\}$ слабо сходится к нулевому оператору, но сильно не сходится.
 \end{enumerate}
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section19_OperatorConvergence/Task02.lean}
+\inputminted{lean}{FunAn/Section19_OperatorConvergence/Task02.lean}
 
 \item Пусть $A_{n}x = (\xi_{n+1}, \xi_{n+2}, \dots)$, $A_{n}: l^{2} \rightarrow l^{2}$. Доказать, что
 \begin{enumerate}[label=\alph*)]
 \item $\{A_{n}\}$ сходится сильно, $\{A_{n}^{*}\}$ сходится слабо к нулевому оператору;
 \item $\{A_{n}A_{n}^{*}\}$ не сходится слабо к нулевому оператору;
+\newpage
 \item $\{A_{n}^{*}A_{n}\}$ сходится к нулевому оператору сильно.
 \end{enumerate}
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section19_OperatorConvergence/Task03.lean}
+\inputminted{lean}{FunAn/Section19_OperatorConvergence/Task03.lean}
 
+\newpage
 \item Пусть $A_{n}x = (\xi_{n+1}, \xi_{n+2}, \dots)$, $A_{n}: l^{2} \rightarrow l^{2}$. Доказать, что $A_{n} \rightarrow 0$ сильно. Верно ли утверждение $A_{n}^{*} \rightarrow 0$ сильно?
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section19_OperatorConvergence/Task04.lean}
+\inputminted{lean}{FunAn/Section19_OperatorConvergence/Task04.lean}
 
 \item Исследовать последовательности $\{A_{n}\} \subset \mathcal{L}(X,X)$ на равномерную, сильную, слабую сходимость.
 \begin{enumerate}[label=\alph*)]
@@ -1696,12 +1679,12 @@ $$
 \item $X = C[0,1]$, $(A_{n}x)(t) = x(t^{1+\frac{1}{n}})$.
 \end{enumerate}
 
+\newpage
 \item Пусть $A, A_{n} \in \mathcal{L}(H,H)$, $\{x_{n}\} \subset H$. Доказать, что если $A_{n} \rightarrow A$ слабо, а $x_{n} \rightarrow x$ сильно, то $A_{n}x_{n} \rightarrow Ax$ слабо. Привести пример, показывающий, что из сильной сходимости $\{A_{n}\}$ к $A$ и слабой сходимости $\{x_{n}\}$ к $x$ не следует слабая сходимость $\{A_{n}x_{n}\}$ к $Ax$.\\
 \textit{Указание.} См. задачу 3.
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section19_OperatorConvergence/Task06.lean}
+\inputminted{lean}{FunAn/Section19_OperatorConvergence/Task06.lean}
 
 \end{enumerate}
 
@@ -1719,14 +1702,14 @@ $$
 \begin{enumerate}[label=\alph*)]
 \item $y(s) = \int_{a}^{b} (s^{2} + t^{2}s)x(t) \, dt$;
 \item $y(s) = \int_{a}^{b} (3st + s^{2})x(t) \, dt$;
+\newpage
 \item $y(s) = \int_{a}^{b} s \cdot x(t) \, dt$
 \end{enumerate}
 компактны в $L^{p}(a,b)$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section20_CompactSets/Task01.lean}
+\inputminted{lean}{FunAn/Section20_CompactSets/Task01.lean}
 
 \item Пусть $\mathcal{M} = \{x(t)\}$ — ограниченное множество функций из $L^{p}(a,b)$. Компактны ли в пространстве $L^{p}(a,b)$ множества функций вида:
 \begin{enumerate}[label=\alph*)]
@@ -1739,23 +1722,23 @@ $$
 \item Пусть $\mathcal{M} = \{x(t)\}$ — ограниченное множество пространства $C[a,b]$. Доказать, что множества функций вида:
 \begin{enumerate}[label=\alph*)]
 \item $y(t) = \int_{a}^{t} x(\xi) \, d\xi$;
+\newpage
 \item $y(s) = \int_{a}^{b} K(s,t)x(t) \, dt$, где $K(s,t) \in C([a,b] \times [a,b])$
 \end{enumerate}
 компактны в пространстве $C[a,b]$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section20_CompactSets/Task03.lean}
+\inputminted{lean}{FunAn/Section20_CompactSets/Task03.lean}
 
 \item Будет ли ограниченное множество многочленов степени не выше $n$ компактным в себе множеством в $C[a,b]$?
 
+\newpage
 \item Доказать, что всякое множество, компактное в пространстве $C^{(1)}[a,b]$, является компактным и в пространстве $C[a,b]$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section20_CompactSets/Task05.lean}
+\inputminted{lean}{FunAn/Section20_CompactSets/Task05.lean}
 
 \item Компактны ли следующие множества функций в пространстве $C[0,1]$:
 \begin{enumerate}[label=\alph*)]
@@ -1771,23 +1754,23 @@ $$
 \item Доказать, что всякое компактное множество в пространстве
 \begin{enumerate}[label=\alph*)]
 \item $C[a,b]$;
+\newpage
 \item $l^{2}$
 \end{enumerate}
 нигде не плотно.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section20_CompactSets/Task07.lean}
+\inputminted{lean}{FunAn/Section20_CompactSets/Task07.lean}
 
+\newpage
 \item Доказать, что параллелепипед
 $$ \mathcal{P} = \{x = (\xi_{1}, \xi_{2}, \dots) \in l^{2} : |\xi_{k}| \le \frac{1}{k}, \forall k \ge 1\} $$
 является компактным в себе множеством в пространстве $l^{2}$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section20_CompactSets/Task08.lean}
+\inputminted{lean}{FunAn/Section20_CompactSets/Task08.lean}
 
 \item При каком условии на последовательность $\lambda_{n} \in \mathbb{R}^{1}$, $\lambda_{n} > 0$, являются компактным в себе множеством в пространстве $l^{2}$:
 \begin{enumerate}[label=\alph*)]
@@ -1830,34 +1813,34 @@ $$ \mathcal{M} = \{x = (\xi_{1}, \xi_{2}, \dots) \in l^{2} : \sum_{k=1}^{\infty}
 
 \subsection*{ЗАДАЧИ}
 \begin{enumerate}
+\newpage
 \item Доказать, что любой линейный оператор $A: \mathbb{R}^{n} \rightarrow \mathbb{R}^{m}$ является компактным.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section21_CompactOperators/Task01.lean}
+\inputminted{lean}{FunAn/Section21_CompactOperators/Task01.lean}
 
+\newpage
 \item Проверить компактность оператора $A: l^{2} \rightarrow l^{2}$, если
 $$ Ax = A(\xi_{1}, \xi_{2}, \dots) = (0, \frac{\xi_{1}}{1}, \frac{\xi_{2}}{2}, \dots, \frac{\xi_{n}}{n}, \dots) $$
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section21_CompactOperators/Task02.lean}
+\inputminted{lean}{FunAn/Section21_CompactOperators/Task02.lean}
 
+\newpage
 \item Пусть $H$ — гильбертово пространство и $A: H \rightarrow H$ — линейный оператор. Доказать, что $A$ компактен тогда и только тогда, когда он любую слабо сходящуюся последовательность переводит в сильно сходящуюся.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section21_CompactOperators/Task03.lean}
+\inputminted{lean}{FunAn/Section21_CompactOperators/Task03.lean}
 
+\newpage
 \item Пусть $A: l^{2} \rightarrow l^{2}$, $A(\xi_{1}, \xi_{2}, \dots) = (a_{1}\xi_{1}, a_{2}\xi_{2}, \dots)$. Доказать, что оператор $A$ компактен тогда и только тогда, когда $a_{n} \rightarrow 0$ при $n \rightarrow \infty$.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section21_CompactOperators/Task04.lean}
+\inputminted{lean}{FunAn/Section21_CompactOperators/Task04.lean}
 
 \item Доказать, что оператор $A: C[a,b] \rightarrow C[a,b]$, $(Ax)(t) = x_{0}(t)x(t)$, где $0 \ne x_{0} \in C[a,b]$, не является компактным.
 
@@ -1877,12 +1860,12 @@ $$ Ax = A(\xi_{1}, \xi_{2}, \dots) = (0, \frac{\xi_{1}}{1}, \frac{\xi_{2}}{2}, \
 
 \item Показать, что оператор $A: l^{2} \rightarrow \mathbb{R}^{1}$, $Ax = \sum_{k=1}^{\infty} \frac{\xi_{k}}{2^{k}}$ является компактным.
 
+\newpage
 \item Показать, что образ компактного оператора является сепарабельным.
 
 
-\newpage
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
-\lstinputlisting[language=Lean]{FunAn/Section21_CompactOperators/Task09.lean}
+\inputminted{lean}{FunAn/Section21_CompactOperators/Task09.lean}
 
 \item Являются ли компактными следующие операторы в пространствах $C[0,1]$ и $L^{2}(0,1)$?
 \begin{enumerate}[label=\alph*)]
