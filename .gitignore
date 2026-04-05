@@ -1,0 +1,17 @@
+# LaTeX auxiliary files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.synctex.gz
+*.toc
+*.out
+*.bbl
+*.blg
+*.nav
+*.snm
+*.vrb
+
+# Lean build artifacts
+.lake/
+build/
