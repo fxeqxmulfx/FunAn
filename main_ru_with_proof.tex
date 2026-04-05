@@ -126,12 +126,16 @@
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section01_SetAlgebra/Task06.lean}
 
+\newpage
+
 \item Верно ли, что всякое открытое множество на прямой можно представить в виде счетного объединения непересекающихся интервалов $(\alpha, \beta)$?
 \newpage
 \item Доказать, что отрезок $[a, b]$ нельзя представить в виде объединения двух непустых, непересекающихся замкнутых множеств.
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section01_SetAlgebra/Task08.lean}
+
+\newpage
 
 \item Открыто или замкнуто канторово множество?
 \newpage
@@ -151,6 +155,8 @@
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section01_SetAlgebra/Task12.lean}
+
+\newpage
 
 \item Является ли канторово множество борелевским?
 \end{enumerate}
@@ -188,6 +194,8 @@
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section02_Measure/Task03.lean}
 
+\newpage
+
 \item Пусть $X$ — единичный квадрат на плоскости и $\mathcal{S}$ — полукольцо содержащихся в $X$ прямоугольников $T_{ab}$ вида
 $$T_{ab} = \{(x,y) \in \mathbb{R}^{2} : a \le x < b, \ 0 \le y \le 1\},$$
 где $0 \le a \le b \le 1$. Положим $\mu(T_{ab}) = b - a$.
@@ -200,6 +208,8 @@ $$T_{ab} = \{(x,y) \in \mathbb{R}^{2} : a \le x < b, \ 0 \le y \le 1\},$$
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section02_Measure/Task04.lean}
+
+\newpage
 
 \item Найти меру Лебега канторова множества.
 
@@ -221,6 +231,8 @@ $$\mu(A) = \sum_{n \in N_{A}} p_{n}, \text{ где } N_{A} = \{n \in \mathbb{N} 
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section02_Measure/Task11.lean}
+
+\newpage
 
 \item Привести пример конечно-аддитивной, но не $\sigma$-аддитивной меры.
 
@@ -248,6 +260,8 @@ $$F(t) - F(t-0) = \lim_{r \rightarrow 0} \mu([t-r, t)) = 0.$$
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section02_Measure/Task14.lean}
+
+\newpage
 
 \item Может ли равняться нулю мера Лебега множества, которое содержит хотя бы одну внутреннюю точку?
 
@@ -280,6 +294,8 @@ $$F(t) - F(t-0) = \lim_{r \rightarrow 0} \mu([t-r, t)) = 0.$$
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task01.lean}
 
+\newpage
+
 \item Доказать, что:
 \begin{enumerate}[label=\alph*)]
 \item функция, монотонная на отрезке $[a, b]$ вещественной оси измерима;
@@ -294,6 +310,8 @@ $$F(t) - F(t-0) = \lim_{r \rightarrow 0} \mu([t-r, t)) = 0.$$
 \inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task02.lean}
 \inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task02a.lean}
 \inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task02d.lean}
+
+\newpage
 
 \item Привести пример неизмеримой функции на отрезке $[0, 1]$.
 
@@ -331,6 +349,8 @@ $$F(t) - F(t-0) = \lim_{r \rightarrow 0} \mu([t-r, t)) = 0.$$
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section03_MeasurableFunctions/Task08.lean}
+
+\newpage
 
 \item Комплекснозначную функцию $f(x) = u(x) + iv(x)$ будем называть измеримой, если её вещественная $u(x)$ и мнимая $v(x)$ части измеримы.
 \begin{enumerate}[label=\alph*)]
@@ -426,6 +446,8 @@ $$ \lim_{n \rightarrow \infty} \int_{E} f_{n}(x) \, d\mu = 0. $$
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section05_BVandRS/Task01.lean}
 
+\newpage
+
 \item Вычислить полную вариацию функции $f(x) = x^{2}$:
 \begin{enumerate}[label=\alph*)]
 \item на $[0, 1]$,
@@ -463,6 +485,8 @@ $$\Phi(x) =
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section05_BVandRS/Task05.lean}
 
+\newpage
+
 \item Вычислить интеграл $\int_{-1}^{3} x \, d\Phi(x)$, где
 $$\Phi(x) =
 \begin{cases} 0, & \text{при } x=-1, \\ 1, & \text{при } x\in(-1, 2), \\ -1, & \text{при } x\in[2, 3].
@@ -475,6 +499,8 @@ $$\int_{a}^{b} f(x) \, d\Phi(x) = \int_{a}^{b} f(x)\Phi^{\prime}(x) \, dx.$$
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section05_BVandRS/Task07.lean}
+
+\newpage
 
 \item Вычислить интеграл Римана-Стилтьеса $\int_{0}^{2} x^{2} \, d\Phi(x)$, где
 $$\Phi(x) =
@@ -506,6 +532,8 @@ $$\left| \int_{a}^{b} f(x) \, d\Phi(x) \right| \le \left(\sup_{x\in[a, b]} |f(x)
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section05_BVandRS/Task11.lean}
+
+\newpage
 
 \item Вычислить интегралы
 $$I_{1} = \int_{-2}^{2} x \, d\Phi(x), \quad I_{2} = 2\int_{-2}^{2} x^{2} \, d\Phi(x), \quad I_{3} = \int_{-2}^{2} (x^{3}+1) \, d\Phi(x),$$
@@ -544,6 +572,8 @@ $$\Phi(x) =
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section06_TopologicalSpaces/Task03.lean}
+
+\newpage
 
 \item Привести пример двух топологий $\tau_{1}$ и $\tau_{2}$ на множестве $X$ таких, что $\tau_{1}$ слабее $\tau_{2}$, $\tau_{1} \ne \tau_{2}$, и при этом топологические пространства $(X, \tau_{1})$ и $(X, \tau_{2})$ гомеоморфны.
 
@@ -682,6 +712,8 @@ $$|\rho(x, z) - \rho(y, t)| \le \rho(x, y) + \rho(z, t).$$
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section07_MetricSpaces/Task07.lean}
 
+\newpage
+
 \item Приведите пример последовательности дважды непрерывно дифференцируемых на отрезке $[a, b]$ функций, которая сходится в пространстве $C[a, b]$, но не сходится в пространстве $C^{(2)}[a, b]$.
 \end{enumerate}
 
@@ -705,6 +737,8 @@ $$\rho(x, y) = |x - y|, \quad \rho_{1}(x, y) = |\operatorname{arctg} x - \operat
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section08_CompleteMetric/Task01.lean}
+
+\newpage
 
 \item Доказать полноту следующих метрических пространств:
 \begin{enumerate}[label=\alph*)]
@@ -740,6 +774,8 @@ $$\rho(n, m) =
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section08_CompleteMetric/Task04.lean}
+
+\newpage
 
 \item Привести пример метрического пространства, в котором существует последовательность замкнутых вложенных шаров, не имеющих общей точки, радиусы которых стремятся к нулю.
 
@@ -898,6 +934,8 @@ $$|f(x)-f(y)|\le\alpha|x-y|,$$
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section10_Contraction/Task04.lean}
 
+\newpage
+
 \item При каких $\lambda$ и $\beta$ отображение $(Ax)(t)=\lambda\cdot x(t^{\beta})$ является сжимающим в $C[0,1]$? В $L^{2}(0,1)$?
 
 \newpage
@@ -927,7 +965,10 @@ $$K(t,s)=
 
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
+\newpage
 \inputminted{lean}{FunAn/Section10_Contraction/Task08.lean}
+
+\newpage
 
 \item При каких $\lambda$ применим принцип сжимающих отображений в пространствах $L^{2}(a,b)$ и $C[a,b]$ к уравнению Фредгольма 2-го рода
 $$x(t)=\lambda\int_{a}^{b}K(t,s)x(s) \, ds+y(t) ?$$
@@ -1026,6 +1067,8 @@ $\overline{x}(t_{k})$ & & & & \\
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section11_NormedSpaces/Task01.lean}
 
+\newpage
+
 \item Можно ли в пространстве $s$ ввести норму, определяющую известную метрику?
 \newpage
 \item Доказать, что нормированное пространство $X$ является банаховым пространством тогда и только тогда, когда всякий ряд $\sum_{k=1}^{\infty}x_{k}$, для которого $\sum_{k=1}^{\infty}||x_{k}||<\infty$, сходится в $X$.
@@ -1044,6 +1087,8 @@ $\overline{x}(t_{k})$ & & & & \\
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section11_NormedSpaces/Task05.lean}
+
+\newpage
 
 \item Можно ли в $C^{(1)}[a,b]$ ввести нормы по формулам:
 \begin{enumerate}[label=\alph*)]
@@ -1097,6 +1142,8 @@ $$L=\left\{x(t)\in C[-1,1] : \int_{-1}^{0}x(t) \, dt=\int_{0}^{1}x(t) \, dt\righ
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section11_NormedSpaces/Task13.lean}
 
+\newpage
+
 \item В пространстве $\mathbb{R}^{2}$ с нормой $||x||=\max\{|\xi_{1}|,|\xi_{2}|\}$ найти подпространство $L$ и точку $x_{0}$ такие, что ближайший элемент в $L$ до $x_{0}$ не единственный.
 \newpage
 \item Доказать, что множество $\mathcal{M}=\{x\in l^{1}:||x||_{2}\le1\}$ не является замкнутым множеством в $l^{2}$, если $||x||_{2}=\left(\sum_{k=1}^{\infty}|\xi_{k}|^{2}\right)^{1/2}$.
@@ -1116,6 +1163,8 @@ $$L=\left\{x(t)\in C[-1,1] : \int_{-1}^{0}x(t) \, dt=\int_{0}^{1}x(t) \, dt\righ
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section11_NormedSpaces/Task17.lean}
+
+\newpage
 
 \item Является ли пространство $c$ всех сходящихся к конечному пределу числовых последовательностей банаховым пространством, если $||x||=\sup_{k\ge1}|\xi_{k}|$?
 \end{enumerate}
@@ -1193,6 +1242,8 @@ $$\mathcal{N}=\left\{x\in l^{2}:x=(\xi_{1},0,\xi_{3},0,\xi_{5},0,\dots)\right\}$
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section12_HilbertSpaces/Task09.lean}
 
+\newpage
+
 \item Для функции $e^{t}$ найти многочлены $p_{n}(t)$ степени $n=0,1,2$ такие, что $||e^{t}-p_{n}(t)||$ минимальна в $L^{2}(-1,1)$.
 \item Для функции $t^{3}$ найти многочлены $p_{n}(t)$ степени $n=0,1,2$ такие, что $||t^{3}-p_{n}(t)||$ минимальна в $L^{2}(-1,1)$.
 \newpage
@@ -1219,6 +1270,8 @@ $$\mathcal{N}=\left\{x\in l^{2}:x=(\xi_{1},0,\xi_{3},0,\xi_{5},0,\dots)\right\}$
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section12_HilbertSpaces/Task15.lean}
+
+\newpage
 
 \item Найти $\mathcal{M}^{\perp}$ в $H$, если:
 \begin{enumerate}[label=\alph*)]
@@ -1298,6 +1351,8 @@ $$F(x) = \int_{a}^{b} p(t)x(t) \, dt, \quad F: C[a,b] \rightarrow \mathbb{R}^{1}
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section14_LinearOperators/Task01.lean}
 
+\newpage
+
 \item Проверить линейность, ограниченность, непрерывность следующих операторов. Найти их нормы, если они линейны и ограничены.
 \begin{enumerate}[label=\alph*)]
 \item $(Ax)(t) = \int_{0}^{t} x(\xi) \, d\xi$, $A: C[0,1] \rightarrow C[0,1]$;
@@ -1357,7 +1412,10 @@ $$
 
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
+\newpage
 \inputminted{lean}{FunAn/Section15_InverseOperators/Task01.lean}
+
+\newpage
 
 \item При каких $\alpha_{1}, \alpha_{2}, \dots$ существует обратный оператор к оператору $Ax = (\alpha_{1}\xi_{1}, \alpha_{2}\xi_{2}, \dots)$, $A: l^{2} \rightarrow l^{2}$? Когда $A^{-1}$ непрерывен?
 
@@ -1367,6 +1425,8 @@ $$
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section15_InverseOperators/Task03.lean}
+
+\newpage
 
 \item Найти обратный оператор к оператору $\frac{d}{dt}: X \rightarrow C[0,1]$, где $X = \{x \in C^{(1)}[0,1] : x(0) = 0\}$.
 
@@ -1483,6 +1543,8 @@ $$F_{n}(x) = \int_{-\pi}^{\pi} x(t) e^{int} \, dt$$
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section17_HahnBanach/Task04.lean}
 
+\newpage
+
 \item Пусть $F_{n}(x) = n \cdot \left[x(\frac{1}{n}) + x(-\frac{1}{n}) - 2x(0)\right]$. Показать, что последовательность $\{F_{n}\}$:
 \begin{enumerate}[label=\alph*)]
 \item сходится по норме к $F(x) \equiv 0$ в $C^{(2)}[-1,1]$;
@@ -1498,7 +1560,10 @@ $$x_{n}^{\prime}(t) =
 
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
+\newpage
 \inputminted{lean}{FunAn/Section17_HahnBanach/Task05.lean}
+
+\newpage
 
 \item Пусть $F_{n}(x) = n^{2} \cdot \left[x(\frac{1}{n}) + x(-\frac{1}{n}) - 2x(0)\right]$, $F(x) = x^{\prime\prime}(0)$. Показать, что последовательность $\{F_{n}\}$:
 \begin{enumerate}[label=\alph*)]
@@ -1518,6 +1583,8 @@ $$x_{n}^{\prime}(t) =
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section17_HahnBanach/Task07.lean}
+
+\newpage
 
 \item Какие из последовательностей сходятся сильно, слабо в $l^{2}$?
 \begin{enumerate}[label=\alph*)]
@@ -1639,6 +1706,8 @@ $$
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section19_OperatorConvergence/Task01.lean}
 
+\newpage
+
 \item Пусть $A_{n}x = (0, \dots, 0, \frac{\xi_{n+1}}{n+1}, \frac{\xi_{n+2}}{n+2}, \dots)$, $B_{n}x = (\xi_{1}, \dots, \xi_{n}, 0, 0, \dots)$, $C_{n}x = (\underbrace{0, 0, \dots, 0}_{n}, \xi_{1}, 0, 0, \dots)$ — операторы в $l^{2}$. Доказать, что:
 \begin{enumerate}[label=\alph*)]
 \item $\{A_{n}\}$ сходится равномерно к нулевому оператору;
@@ -1650,6 +1719,8 @@ $$
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section19_OperatorConvergence/Task02.lean}
+
+\newpage
 
 \item Пусть $A_{n}x = (\xi_{n+1}, \xi_{n+2}, \dots)$, $A_{n}: l^{2} \rightarrow l^{2}$. Доказать, что
 \begin{enumerate}[label=\alph*)]
@@ -1669,6 +1740,8 @@ $$
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section19_OperatorConvergence/Task04.lean}
+
+\newpage
 
 \item Исследовать последовательности $\{A_{n}\} \subset \mathcal{L}(X,X)$ на равномерную, сильную, слабую сходимость.
 \begin{enumerate}[label=\alph*)]
@@ -1712,6 +1785,8 @@ $$
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section20_CompactSets/Task01.lean}
 
+\newpage
+
 \item Пусть $\mathcal{M} = \{x(t)\}$ — ограниченное множество функций из $L^{p}(a,b)$. Компактны ли в пространстве $L^{p}(a,b)$ множества функций вида:
 \begin{enumerate}[label=\alph*)]
 \item $y(s) = \int_{a}^{b} (3s + s^{2}t^{2})x(t) \, dt$;
@@ -1732,6 +1807,8 @@ $$
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section20_CompactSets/Task03.lean}
 
+\newpage
+
 \item Будет ли ограниченное множество многочленов степени не выше $n$ компактным в себе множеством в $C[a,b]$?
 
 \newpage
@@ -1740,6 +1817,8 @@ $$
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section20_CompactSets/Task05.lean}
+
+\newpage
 
 \item Компактны ли следующие множества функций в пространстве $C[0,1]$:
 \begin{enumerate}[label=\alph*)]
@@ -1772,6 +1851,8 @@ $$ \mathcal{P} = \{x = (\xi_{1}, \xi_{2}, \dots) \in l^{2} : |\xi_{k}| \le \frac
 
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section20_CompactSets/Task08.lean}
+
+\newpage
 
 \item При каком условии на последовательность $\lambda_{n} \in \mathbb{R}^{1}$, $\lambda_{n} > 0$, являются компактным в себе множеством в пространстве $l^{2}$:
 \begin{enumerate}[label=\alph*)]
