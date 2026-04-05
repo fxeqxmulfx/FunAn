@@ -201,7 +201,6 @@ $$T_{ab} = \{(x,y) \in \mathbb{R}^{2} : a \le x < b, \ 0 \le y \le 1\},$$
 где $0 \le a \le b \le 1$. Положим $\mu(T_{ab}) = b - a$.
 \begin{enumerate}[label=\alph*)]
 \item Доказать, что множество $T = \{(x,y) \in \mathbb{R}^{2} : 0 \le x < 1, y = 1/2\}$ неизмеримо по мере $\mu$, и найти его внешнюю меру.
-\newpage
 \item Описать явный вид лебеговского продолжения меры $\mu$.
 \end{enumerate}
 
@@ -236,6 +235,7 @@ $$\mu(A) = \sum_{n \in N_{A}} p_{n}, \text{ где } N_{A} = \{n \in \mathbb{N} 
 
 \item Привести пример конечно-аддитивной, но не $\sigma$-аддитивной меры.
 
+\newpage
 \item Рассмотрим полукольцо $\mathcal{S}$, состоящее из полуинтервалов вида $[a, b)$.
 \begin{enumerate}[label=\alph*)]
 \item Пусть $F$ - неубывающая функция на $\mathbb{R}$ и $F(0)=0$. Доказать, что формула $\mu_{F}([a,b)) = F(b) - F(a)$ определяет меру на $\mathcal{S}$.
@@ -244,7 +244,6 @@ $$F_{\mu}(t) =
 \begin{cases} \mu([0,t)), & \text{при } t > 0, \\ 0, & \text{при } t = 0, \\ -\mu([t,0)), & \text{при } t < 0,
 \end{cases}$$
 является неубывающей.
-\newpage
 \item Доказать, что для того, чтобы мера $\mu$ на $\mathcal{S}$ была счетно-аддитивной, необходимо и достаточно, чтобы соответствующая функция $F$ на $\mathbb{R}$ была непрерывна слева, т.е.
 $$F(t) - F(t-0) = \lim_{r \rightarrow 0} \mu([t-r, t)) = 0.$$
 \end{enumerate}
@@ -301,7 +300,6 @@ $$F(t) - F(t-0) = \lim_{r \rightarrow 0} \mu([t-r, t)) = 0.$$
 \item функция, монотонная на отрезке $[a, b]$ вещественной оси измерима;
 \item непрерывные функции измеримы;
 \item сумма двух измеримых функций есть функция измеримая;
-\newpage
 \item функция ограниченной вариации на $[a, b]$ измерима.
 \end{enumerate}
 
@@ -355,7 +353,6 @@ $$F(t) - F(t-0) = \lim_{r \rightarrow 0} \mu([t-r, t)) = 0.$$
 \item Комплекснозначную функцию $f(x) = u(x) + iv(x)$ будем называть измеримой, если её вещественная $u(x)$ и мнимая $v(x)$ части измеримы.
 \begin{enumerate}[label=\alph*)]
 \item Доказать, что $|f(x)|$ и $\arg f(x)$ - измеримые функции.
-\newpage
 \item Доказать, что для измеримости комплекснозначной функции $f(x)$ необходимо и достаточно, чтобы измеримыми были все множества вида
 $$A_{r,z} = \{x : |f(x) - z| \le r\} \quad (z \in \mathbb{C}, r \ge 0).$$
 \end{enumerate}
@@ -470,12 +467,12 @@ $$\Phi(x) =
 \item Если изменить значение $\Phi(x)$ в точке разрыва $x=1$, то вариация функции изменится. Как изменить значение этой функции в точке $x=1$, чтобы вариация стала наименьшей?
 \end{enumerate}
 
+\newpage
 \item Доказать, что функция:
 \begin{enumerate}[label=\alph*)]
 \item $\Phi(x) =
 \begin{cases} 0, & \text{при } x=0, \\ x^{2} \cos\frac{\pi}{x}, & \text{при } x\ne0
 \end{cases}$ \\ имеет ограниченную вариацию на отрезке $[0, 1]$;
-\newpage
 \item $\Phi(x) =
 \begin{cases} 0, & \text{при } x=0, \\ x^{2} \sin\frac{1}{x}, & \text{при } x\ne0
 \end{cases}$ \\ имеет неограниченную вариацию на отрезке $[0, \frac{2}{\pi}]$.
@@ -750,7 +747,6 @@ $\rho(x, y) = \left( \sum_{k=1}^{\infty} k|\xi_{k} - \eta_{k}|^{p} \right)^{1/p}
 \item $l_{\infty} = \left\{x = (\xi_{1}, \xi_{2}, \dots) : \sup_{n\ge1} \left| \sum_{k=1}^{n} \xi_{k} \right| < \infty \right\}$, \\ $\rho(x, y) = \sup_{n\ge1} \left| \sum_{k=1}^{n} (\xi_{k} - \eta_{k}) \right|$;
 \item $c_{0} = \left\{x = (\xi_{1}, \xi_{2}, \dots) : \xi_{k} \in \mathbb{C}, \xi_{k} \rightarrow 0 \text{ при } k \rightarrow \infty\right\}$, \\ $\rho(x, y) = \max_{k\ge1} |\xi_{k} - \eta_{k}|$;
 \item $X = \{x \in C(\mathbb{R}^{1}) : x(t) \rightarrow 0 \text{ при } |t| \rightarrow \infty\}$, \\ $\rho(x, y) = \max_{t\in\mathbb{R}} |x(t) - y(t)|$;
-\newpage
 \item $X = \{x \in C[0, 1] : x(0) = 0\}$, $\rho(x, y) = \max_{0\le t\le1} |x(t) - y(t)|$.
 \end{enumerate}
 
@@ -779,6 +775,7 @@ $$\rho(n, m) =
 
 \item Привести пример метрического пространства, в котором существует последовательность замкнутых вложенных шаров, не имеющих общей точки, радиусы которых стремятся к нулю.
 
+\newpage
 \item Доказать, что следующие метрические пространства не являются полными, построить их пополнения.
 \begin{enumerate}[label=\alph*)]
 \item $C[0, 1]$, $\rho(x, y) = \int_{0}^{1} |x(t) - y(t)| \, dt$;
@@ -787,7 +784,6 @@ $$\rho(n, m) =
 \item $\mathbb{R}^{1}$, $\rho(x, y) = |\operatorname{arctg} x - \operatorname{arctg} y|$;
 \item $\mathbb{Z}$, $\rho(p, q) = |e^{ip} - e^{iq}|$;
 \item $X = \{x \in C^{\infty}[0, 1] : x^{(k)}(0) = x^{(k)}(1) = 0 \ \forall k \ge 0\}$, \\ $\rho(x, y) = \max_{0\le t\le1} |x(t) - y(t)|$;
-\newpage
 \item $C[0, 1]$, $\rho(x, y) = \max_{0\le t\le1} t|x(t) - y(t)|$.
 \end{enumerate}
 \textit{Указание.} Рассмотреть
@@ -1446,10 +1442,10 @@ $$(Ax)(t) = \int_{0}^{t} x(\xi) \, d\xi + \lambda \cdot x(t), \quad A: C[0,1] \r
 
 \item Пусть $(Ax)(t) = (t+1)x(t)$, $(Bx)(t) = x(t^{2})$ — операторы в $C[0,1]$. Чему равны $(AB)^{-1}, (BA)^{-1}$?
 
+\newpage
 \item Пусть $A, B \in \mathcal{L}(X,X)$. Доказать, что
 \begin{enumerate}[label=\alph*)]
 \item если существуют $A^{-1}, B^{-1}$, то $(AB)^{-1} = B^{-1}A^{-1}$;
-\newpage
 \item если существуют $A^{-1}, (BA)^{-1}$, то существует $B^{-1}$.
 \end{enumerate}
 \textit{Указание.} $B^{-1} = A(BA)^{-1}$.
@@ -1549,7 +1545,6 @@ $$F_{n}(x) = \int_{-\pi}^{\pi} x(t) e^{int} \, dt$$
 \begin{enumerate}[label=\alph*)]
 \item сходится по норме к $F(x) \equiv 0$ в $C^{(2)}[-1,1]$;
 \item сходится слабо к $0$ в $C^{(1)}[-1,1]$, но не сходится сильно;
-\newpage
 \item не сходится даже слабо в $C[-1,1]$.
 \end{enumerate}
 \textit{Указания.} (i) Использовать формулу Тейлора. (ii) Оценить нормы $||F_{n}||$ снизу:
@@ -1569,7 +1564,6 @@ $$x_{n}^{\prime}(t) =
 \begin{enumerate}[label=\alph*)]
 \item сходится к $F$ по норме в $C^{(3)}[-1,1]$;
 \item сходится слабо к $F$ в $C^{(2)}[-1,1]$, но не сходится сильно;
-\newpage
 \item не сходится даже слабо в $C^{(1)}[-1,1]$.
 \end{enumerate}
 
@@ -1615,11 +1609,11 @@ $$x_{n}^{\prime}(t) =
 \end{cases}$
 \end{enumerate}
 
+\newpage
 \item Пусть последовательность $\{x_{n}\} \subset H$ слабо сходится к $x$. Доказать, что $\{x_{n}\}$ будет сходиться сильно при выполнении одного из условий:
 \begin{enumerate}[label=\alph*)]
 \item $||x_{n}|| \rightarrow ||x||$;
 \item $||x_{n}|| \le ||x||$ $\forall n > N_{0}$;
-\newpage
 \item $\lim_{n \rightarrow \infty} ||x_{n}|| \le ||x||$.
 \end{enumerate}
 
@@ -1712,7 +1706,6 @@ $$
 \begin{enumerate}[label=\alph*)]
 \item $\{A_{n}\}$ сходится равномерно к нулевому оператору;
 \item $\{B_{n}\}$ сильно сходится к единичному оператору, а равномерно не сходится;
-\newpage
 \item $\{C_{n}\}$ слабо сходится к нулевому оператору, но сильно не сходится.
 \end{enumerate}
 
@@ -1726,7 +1719,6 @@ $$
 \begin{enumerate}[label=\alph*)]
 \item $\{A_{n}\}$ сходится сильно, $\{A_{n}^{*}\}$ сходится слабо к нулевому оператору;
 \item $\{A_{n}A_{n}^{*}\}$ не сходится слабо к нулевому оператору;
-\newpage
 \item $\{A_{n}^{*}A_{n}\}$ сходится к нулевому оператору сильно.
 \end{enumerate}
 
@@ -1772,11 +1764,11 @@ $$
 
 \subsection*{ЗАДАЧИ}
 \begin{enumerate}
+\newpage
 \item Пусть $\mathcal{M} = \{x(t)\}$ — ограниченное множество функций из $C[a,b]$. Доказать, что множество функций вида:
 \begin{enumerate}[label=\alph*)]
 \item $y(s) = \int_{a}^{b} (s^{2} + t^{2}s)x(t) \, dt$;
 \item $y(s) = \int_{a}^{b} (3st + s^{2})x(t) \, dt$;
-\newpage
 \item $y(s) = \int_{a}^{b} s \cdot x(t) \, dt$
 \end{enumerate}
 компактны в $L^{p}(a,b)$.
@@ -1795,10 +1787,10 @@ $$
 \item $y(s) = \int_{a}^{b} K(s,t)x(t) \, dt$, где функция $K(s,t)$ непрерывна в квадрате $[a,b] \times [a,b]$?
 \end{enumerate}
 
+\newpage
 \item Пусть $\mathcal{M} = \{x(t)\}$ — ограниченное множество пространства $C[a,b]$. Доказать, что множества функций вида:
 \begin{enumerate}[label=\alph*)]
 \item $y(t) = \int_{a}^{t} x(\xi) \, d\xi$;
-\newpage
 \item $y(s) = \int_{a}^{b} K(s,t)x(t) \, dt$, где $K(s,t) \in C([a,b] \times [a,b])$
 \end{enumerate}
 компактны в пространстве $C[a,b]$.
@@ -1831,10 +1823,10 @@ $$
 \item $x_{\alpha}(t) = e^{t-\alpha}$, $\alpha \ge 0$?
 \end{enumerate}
 
+\newpage
 \item Доказать, что всякое компактное множество в пространстве
 \begin{enumerate}[label=\alph*)]
 \item $C[a,b]$;
-\newpage
 \item $l^{2}$
 \end{enumerate}
 нигде не плотно.
