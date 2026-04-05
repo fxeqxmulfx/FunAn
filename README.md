@@ -42,3 +42,7 @@ lake build
 ```
 
 Requires Lean 4 and Mathlib.
+
+## Authors
+
+Formalization: **Mikhail Borisov** & **Claude Opus 4.6 Max** (Anthropic)
