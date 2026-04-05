@@ -5,6 +5,20 @@
 \setmainfont{Liberation Serif}
 \setsansfont{Liberation Sans}
 \setmonofont{DejaVu Sans Mono}
+\newfontfamily\fallbackA{FreeSans}
+\newfontfamily\fallbackB{Noto Sans Math}
+\usepackage{newunicodechar}
+% Symbols missing from DejaVu Sans Mono — pull from fallback fonts
+\newunicodechar{ᗮ}{{\fallbackA ᗮ}}
+\newunicodechar{ℓ}{{\fallbackA ℓ}}
+\newunicodechar{ℵ}{{\fallbackA ℵ}}
+\newunicodechar{⟹}{{\fallbackA ⟹}}
+\newunicodechar{⨅}{{\fallbackA ⨅}}
+\newunicodechar{⨆}{{\fallbackA ⨆}}
+\newunicodechar{𝒫}{{\fallbackB 𝒫}}
+\newunicodechar{𝓝}{{\fallbackB 𝓝}}
+\newunicodechar{𝔠}{{\fallbackB 𝔠}}
+\newunicodechar{𝕜}{{\fallbackB 𝕜}}
 \usepackage{polyglossia}
 \setdefaultlanguage{russian}
 \setotherlanguage{english}
