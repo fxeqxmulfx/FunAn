@@ -1843,14 +1843,23 @@ $$ Ax = A(\xi_{1}, \xi_{2}, \dots) = (0, \frac{\xi_{1}}{1}, \frac{\xi_{2}}{2}, \
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section21_CompactOperators/Task04.lean}
 
+\newpage
 \item Доказать, что оператор $A: C[a,b] \rightarrow C[a,b]$, $(Ax)(t) = x_{0}(t)x(t)$, где $0 \ne x_{0} \in C[a,b]$, не является компактным.
 
+\begin{center}\small\textbf{Формализация на Lean 4}\end{center}
+\inputminted{lean}{FunAn/Section21_CompactOperators/Task05.lean}
+
+\newpage
 \item Доказать компактность следующих операторов:
 \begin{enumerate}[label=\alph*)]
 \item $A: C[0,1] \rightarrow C[0,1]$, $(Ax)(t) = \int_{0}^{t} x_{0}(t)x(s) \, ds$, где $x_{0}(t) \in C[a,b]$;
 \item $A: C[a,b] \rightarrow C[a,b]$, $(Ax)(t) = \int_{a}^{b} K(s,t)x(s) \, ds$, где $K(s,t)$ — непрерывная на $[a,b] \times [a,b]$ функция.
 \end{enumerate}
 
+\begin{center}\small\textbf{Формализация на Lean 4}\end{center}
+\inputminted{lean}{FunAn/Section21_CompactOperators/Task06.lean}
+
+\newpage
 \item Доказать компактность следующих операторов:
 \begin{enumerate}[label=\alph*)]
 \item $A: L^{2}(0,1) \rightarrow L^{2}(0,1)$, $(Ax)(t) = \int_{0}^{t} x(s) \, ds$;
@@ -1859,7 +1868,14 @@ $$ Ax = A(\xi_{1}, \xi_{2}, \dots) = (0, \frac{\xi_{1}}{1}, \frac{\xi_{2}}{2}, \
 \item $A: L^{2}(a,b) \rightarrow L^{2}(a,b)$, $(Ax)(t) = \int_{a}^{b} K(s,t)x(s) \, ds$, где $K(s,t) \in L^{2}([a,b] \times [a,b])$.
 \end{enumerate}
 
+\begin{center}\small\textbf{Формализация на Lean 4}\end{center}
+\inputminted{lean}{FunAn/Section21_CompactOperators/Task07.lean}
+
+\newpage
 \item Показать, что оператор $A: l^{2} \rightarrow \mathbb{R}^{1}$, $Ax = \sum_{k=1}^{\infty} \frac{\xi_{k}}{2^{k}}$ является компактным.
+
+\begin{center}\small\textbf{Формализация на Lean 4}\end{center}
+\inputminted{lean}{FunAn/Section21_CompactOperators/Task08.lean}
 
 \newpage
 \item Показать, что образ компактного оператора является сепарабельным.
@@ -1868,6 +1884,7 @@ $$ Ax = A(\xi_{1}, \xi_{2}, \dots) = (0, \frac{\xi_{1}}{1}, \frac{\xi_{2}}{2}, \
 \begin{center}\small\textbf{Формализация на Lean 4}\end{center}
 \inputminted{lean}{FunAn/Section21_CompactOperators/Task09.lean}
 
+\newpage
 \item Являются ли компактными следующие операторы в пространствах $C[0,1]$ и $L^{2}(0,1)$?
 \begin{enumerate}[label=\alph*)]
 \item $(Ax)(t) = \int_{0}^{1} x(s) \, ds$;
@@ -1875,8 +1892,13 @@ $$ Ax = A(\xi_{1}, \xi_{2}, \dots) = (0, \frac{\xi_{1}}{1}, \frac{\xi_{2}}{2}, \
 \item $(Ax)(t) = \int_{0}^{1} (ts + t^{2}s^{2})x(s) \, ds$.
 \end{enumerate}
 
+\newpage
 \item Доказать, что оператор дифференцирования $\frac{d}{dt}$ является компактным из $C^{(2)}[0,1]$ в $C[0,1]$.
 
+\begin{center}\small\textbf{Формализация на Lean 4}\end{center}
+\inputminted{lean}{FunAn/Section21_CompactOperators/Task11.lean}
+
+\newpage
 \item При каких $\alpha, \beta, \gamma > 0$ является компактным в пространстве $C[0,1]$ оператор $(Ax)(t) = \int_{0}^{1} t^{\alpha} s^{\beta} x(s^{\gamma}) \, ds$?
 
 \item При каких $\alpha, \beta, \gamma$ является компактным в пространстве $L^{2}(0,1)$ оператор $(Ax)(t) = \int_{0}^{1} t^{\alpha} s^{\beta} x(s^{\gamma}) \, ds$?
