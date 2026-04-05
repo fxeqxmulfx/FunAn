@@ -43,6 +43,17 @@ lake build
 
 Requires Lean 4 and Mathlib.
 
+## Compiling the PDF
+
+The textbook with embedded Lean 4 proofs can be compiled with XeLaTeX (run twice for the table of contents):
+
+```bash
+xelatex -shell-escape main_ru_with_proof.tex
+xelatex -shell-escape main_ru_with_proof.tex
+```
+
+Requires XeLaTeX, the `minted` package, and Pygments (`pip install Pygments`).
+
 ## Authors
 
 Formalization: **Mikhail Borisov** & **Claude Opus 4.6 Max** (Anthropic)
